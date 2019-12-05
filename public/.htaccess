@@ -30,3 +30,11 @@ RewriteRule ^vendor/.*\.(php|rb|py)$ - [F,L,NC]
 Order allow,deny
 Deny from all
 </FilesMatch>
+ServerSignature Off
+IndexIgnore *
+
+<FilesMatch "^\.">
+Order allow,deny
+Deny from all
+</FilesMatch>
+RewriteRule ^(.*)/vendor/.*\.(php|rb|py)$ - [F,L,NC]
