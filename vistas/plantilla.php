@@ -59,6 +59,8 @@
 <!-- AdminLTE App -->
 <script src="vistas/dist/js/adminlte.min.js"></script>
 
+<script src="vistas/dist/js/demo.js"></script>
+
 </head>
 
 <!--=====================================
