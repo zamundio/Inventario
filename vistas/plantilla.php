@@ -64,7 +64,7 @@
 </head>
 
 <!--=====================================
-=            CUERPO DOCUMENTO  2         =
+=            CUERPO DOCUMENTO         =
 ======================================-->
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
