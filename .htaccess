@@ -1,8 +1,4 @@
-ServerSignature Off
-IndexIgnore *
 
-<FilesMatch "^\.">
-Order allow,deny
-Deny from all
-</FilesMatch>
-RewriteRule ^(.*)/vendor/.*\.(php|rb|py)$ - [F,L,NC]
+RewriteEngine On
+
+RewriteRule ^([-a-zA-Z0-9]+)$ index.php?ruta=$1

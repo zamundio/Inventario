@@ -1,7 +1,8 @@
 <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
-    </div>
-    <strong>Copyright &copy; 2019 <a href="">Sergio Fernández</a>.</strong> All rights
-    reserved.
-  </footer>
+	
+	<strong>Copyright &copy; 2017 <a href="https://menarini.es" target="_blank">Sergio Fernández</a>.</strong>
+
+	Todos los derechos reservados.
+
+
+</footer>

@@ -4,6 +4,6 @@ session_destroy();
 
 echo '<script>
 
-	window.location = "Inicio";
+	window.location = "ingreso";
 
 </script>';

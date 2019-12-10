@@ -1,11 +1,8 @@
 <?php
 
-/**
- * 
- */
 class Conexion{
 
-	static function conectar(){
+	public function conectar(){
 
 		$link = new PDO("mysql:host=localhost;dbname=inventario",
 			            "root",
