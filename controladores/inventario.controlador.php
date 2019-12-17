@@ -2,7 +2,7 @@
 
 class controladorInventario{
 
-	public function ctrPlantilla(){
+	static public function ctrPlantilla(){
 
 		include "vistas/inventario.php";
 

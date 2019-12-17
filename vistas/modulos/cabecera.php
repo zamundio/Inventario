@@ -1,78 +1,84 @@
 <header class="main-header">
- 	
-	<!--=====================================
+
+    <!--=====================================
 	LOGOTIPO
 	======================================-->
-	<a href="inicio" class="logo">
-		
-		<!-- logo mini -->
-		<span class="logo-mini">
-			
-			<img src="vistas/img/plantilla/icono-blanco.png" class="img-responsive" style="padding:10px">
+    <a href="inicio" class="logo">
 
-		</span>
+        <!-- logo mini -->
+        <span class="logo-mini">
 
-		<!-- logo normal -->
+            <img src="vistas/img/plantilla/icono-blanco.png" class="img-responsive" style="padding:10px">
 
-		<span class="logo-lg">
-			
-			<img src="vistas/img/plantilla/logo-blanco-lineal.png" class="img-responsive" style="padding:10px 0px">
+        </span>
 
-		</span>
+        <!-- logo normal -->
 
-	</a>
+        <span class="logo-lg">
 
-	<!--=====================================
+            <img src="vistas/img/plantilla/logo-blanco-lineal.png" class="img-responsive" style="padding:10px 0px">
+
+        </span>
+
+    </a>
+
+    <!--=====================================
 	BARRA DE NAVEGACIÓN
 	======================================-->
-	<nav class="navbar navbar-static-top" role="navigation">
-		
-		<!-- Botón de navegación -->
+    <nav class="navbar navbar-static-top" role="navigation">
 
-	 	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        	
-        	<span class="sr-only">Toggle navigation</span>
-      	
-      	</a>
+        <!-- Botón de navegación -->
 
-		<!-- perfil de usuario -->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
 
-		<div class="navbar-custom-menu">
-				
-			<ul class="nav navbar-nav">
-				
-				<li class="dropdown user user-menu">
-					
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						
-						<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">
+            <span class="sr-only">Toggle navigation</span>
 
-						<span class="hidden-xs">Usuario Administrador</span>
+        </a>
 
-					</a>
+        <!-- perfil de usuario -->
 
-					<!-- Dropdown-toggle -->
+        <div class="navbar-custom-menu">
 
-					<ul class="dropdown-menu">
-						
-						<li class="user-body">
-							
-							<div class="pull-right">
-								
-								<a href="Salir" class="btn btn-default btn-flat">Salir</a>
+            <ul class="nav navbar-nav">
 
-							</div>
+                <li class="dropdown user user-menu">
 
-						</li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <?php
+                        if (!$_SESSION["foto"]=""){
 
-					</ul>
+                        echo "<img src="& $_SESSION["foto"] & "class='user-image'>";
 
-				</li>
+                        }else{
+                        echo "<img src='vistas/img/usuarios/default/anonymous.png' class='user-image'>";
+                        }
+                        ?>
+                        <span class="hidden-xs"><?php echo $_SESSION["nombre"] ?></span>
 
-			</ul>
+                    </a>
 
-		</div>
+                    <!-- Dropdown-toggle -->
 
-	</nav>
+                    <ul class="dropdown-menu">
 
- </header>
+                        <li class="user-body">
+
+                            <div class="pull-right">
+
+                                <a href="Salir" class="btn btn-default btn-flat">Salir</a>
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</header>

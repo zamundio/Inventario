@@ -37,7 +37,7 @@
 
         <div class="box-body">
 
-            <table class="table table-bordered table-striped dt-responsive tablas">
+            <table  class="table table-bordered table-striped dt-responsive tablas">
                 <thead>
                     <tr>
                         <th style="width:10px">#</th>
@@ -81,18 +81,24 @@
                         </td>
                     </tr>
             </table>
+
+
         </div>
+
+
         <!-- /.box-body -->
     </section>
 </div>
 <!-- /.box -->
+
+
 <!-- /.content -->
 <!--=====================================
 MODAL AGREGAR USUARIO
 ======================================-->
 
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
-?>
+
     <div class="modal-dialog" id="modalAgregarUsuario_dialog">
 
         <div class="modal-content">
@@ -141,7 +147,7 @@ MODAL AGREGAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Usuario" required>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Usuario" id="nuevoUsuario" required>
 
                             </div>
                             <!-- FIN ENTRADA PARA EL USUARIO -->
@@ -165,7 +171,7 @@ MODAL AGREGAR USUARIO
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="nuevoPerfil">
+                                <select class="form-control input-lg" name="NuevoPerfil">
                                     <option value="">Seleccionar Perfil</option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Usuario">Usuario</option>
@@ -176,9 +182,9 @@ MODAL AGREGAR USUARIO
                         <!-- ENTRADA PARA SELECCIONAR FOTO   -->
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO </div>
-                            <input type="file" class="nuevaFoto" name="nuevaFoto" >
-                            <p class="help-block">peso maximo de la foto 2 Mb</p>
-                            <img src="vistas\img\usuarios\default\anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                            <input type="FILE" name="NuevaFoto" id="NuevaFoto">
+                            <p class="help-block">peso maximo de la foto 20 Mb</p>
+                            <img src="vistas\img\usuarios\default\anonymous.png" class="img-thumbnail" width="100px">
                             </input>
                         </div>
                         <!--FIN ENTRADA PARA SELECCIONAR FOTO   -->
@@ -191,13 +197,10 @@ MODAL AGREGAR USUARIO
 
                 <!-- PIE MODAL -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default pull-left">Guardar Cambios</button>
+                    <button type="button" class="btn btn-default pull-left">Guardar Cambios</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
-                <?php
-               $crearUsuario = new ControladorUsuarios();
-                $crearUsuario->ctrCrearUsuario();
-                ?>
+
                 <!-- --Fin formulario -->
             </form>
             <!--  class="modal-content"-->
