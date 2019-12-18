@@ -102,7 +102,7 @@ class ControladorUsuarios{
                 /**fin Gestion FOTO */
                $tabla="usuarios";
               $encriptar=password_hash($_POST["nuevoPassword"],PASSWORD_DEFAULT);
-              VAR_DUMP($encriptar) ;
+
               $datos=array("nombre"=>$_POST["nuevoNombre"],
                             "usuario" => $_POST["nuevoUsuario"],
                             "password" => $encriptar,
@@ -123,4 +123,18 @@ class ControladorUsuarios{
             /* Fin else */
         }
     }
+    /*=============================================
+	MOSTRAR   USUARIOS
+    =============================================*/
+    static public function ctrMostrarusuarios($item,$valor){
+
+       $tabla="usuarios";
+      $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+        return $respuesta;
+
+
+    }
+
+
+
 }

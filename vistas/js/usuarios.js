@@ -35,3 +35,26 @@ $(".nuevaFoto").change(function() {
     }
 
 })
+
+$(".btnEditarUsuario").click(function() {
+    var idUsuario = $(this).attr("idusuario");
+    var datos = new FormData();
+    datos.append("idusuario", idUsuario);
+    $.ajax({
+        url: "ajax/usuarios.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function(respuesta) {
+            console.log("respuesta", respuesta);
+        }
+
+
+    })
+
+
+
+})
