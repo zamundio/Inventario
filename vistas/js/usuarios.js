@@ -3,7 +3,7 @@
  *************************************/
 $(".nuevaFoto").change(function() {
     var imagen = this.files[0];
-    console.log("imagen", imagen);
+
     if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
 
         Swal({
@@ -37,9 +37,10 @@ $(".nuevaFoto").change(function() {
 })
 
 $(".btnEditarUsuario").click(function() {
-    var idUsuario = $(this).attr("idusuario");
+    var idUsuario = $(this).attr("idUsuario");
     var datos = new FormData();
-    datos.append("idusuario", idUsuario);
+    datos.append("idUsuario", idUsuario);
+
     $.ajax({
         url: "ajax/usuarios.ajax.php",
         method: "POST",
@@ -50,11 +51,44 @@ $(".btnEditarUsuario").click(function() {
         dataType: "json",
         success: function(respuesta) {
             console.log("respuesta", respuesta);
+            $("#editarNombre").val(respuesta["nombre"]);
+            $("#editarUsuario").val(respuesta["usuario"]);
+            $("#editarPerfil").html(respuesta["perfil"]);
+            $("#editarPerfil").val(respuesta["perfil"]);
+            $(".previsualizar").attr("src", respuesta["foto"]);
+            if (respuesta["foto"] != "") {
+                $("#fotoActual").val(respuesta["foto"]);
+                $("#editarPerfil").val(respuesta["perfil"]);
+            } else {
+                $(".previsualizar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+            }
+            $("#passwordActual").val(respuesta["password"]);
         }
 
 
     })
 
+})
 
+/**ACTIVAR USUARIO */
+$(".btnActivar").click(function() {
+    var idActivar = $(this).attr("idUsuario");
+    var estado = $(this).attr("estadoUsuario");
+    var datos = new FormData();
+    datos.append("ActivarId", idActivar);
+    datos.append("activarUsuario", estado);
+    $.ajax({
+        url: "ajax/usuarios.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta) {
+            console.log("respuesta", respuesta);
+        }
+    })
+
+    location.reload();
 
 })

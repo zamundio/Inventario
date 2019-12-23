@@ -76,7 +76,7 @@ MODAL AGREGAR USUARIO
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="nuevoPerfil">
+                                <select class="form-control input-lg" name="nuevoPerfil" required>
                                     <option value="">Seleccionar Perfil</option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Usuario">Usuario</option>
@@ -159,13 +159,13 @@ MODAL EDITAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                                <input type="text" class="form-control input-lg" name="editarNombre" placeholder="" required>
+                                <input type="text" class="form-control input-lg" id="editarNombre" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+" name=" editarNombre" placeholder="" required>
 
                             </div>
 
                         </div>
 
-                        <!-- ENTRADA PARA EL USUARIO -->
+                        <!-- ENTRADA PARA EL USUARIO(no modificable en la edicion) -->
 
                         <div class="form-group">
 
@@ -173,7 +173,7 @@ MODAL EDITAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                                <input type="text" class="form-control input-lg" name="editarUsuario" placeholder="" required>
+                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
 
                             </div>
                             <!-- FIN ENTRADA PARA EL USUARIO -->
@@ -187,7 +187,9 @@ MODAL EDITAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Contraseña" required>
+                                <input type="password" class="form-control input-lg" name="editarPassword" pattern="[a-zA-Z0-9]+" placeholder="Escriba la nueva Contraseña">
+                                <input type="hidden" id="passwordActual" name="passwordActual">
+
 
                             </div>
                             <!-- FIN ENTRADA PARA LA CONTRASEÑA -->
@@ -198,7 +200,8 @@ MODAL EDITAR USUARIO
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
                                 <select class="form-control input-lg" name="editarPerfil">
-                                    <option value="">Editar Perfil</option>
+                                    <option value="" id="editarPerfil"></option>
+                                    </option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Usuario">Usuario</option>
                                 </select>
@@ -208,10 +211,11 @@ MODAL EDITAR USUARIO
                         <!-- ENTRADA PARA SELECCIONAR FOTO   -->
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO </div>
-                            <input type="file" class="nuevaFoto" name="editarFoto">
+                            <input type="file" class="nuevaFoto" id="editarFoto" name="editarFoto">
                             <p class="help-block">peso maximo de la foto 2 Mb</p>
                             <img src="vistas\img\usuarios\default\anonymous.png" class="img-thumbnail previsualizar" width="100px">
                             </input>
+                            <input type="hidden" id="fotoActual" name="fotoActual">
                         </div>
                         <!--FIN ENTRADA PARA SELECCIONAR FOTO   -->
 
@@ -225,12 +229,12 @@ MODAL EDITAR USUARIO
                 PIE DEL MODAL
                 ======================================-->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default pull-left">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-default pull-left">Modificar usuario</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
                 <?php
-                $crearUsuario = new ControladorUsuarios();
-                $crearUsuario->ctrCrearUsuario();
+                $editarUsuario = new ControladorUsuarios();
+                $editarUsuario->ctrEditarUsuario();
                 ?>
                 <!-- --Fin formulario -->
             </form>
