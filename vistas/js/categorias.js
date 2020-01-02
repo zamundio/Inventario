@@ -71,15 +71,17 @@ $(document).on("click", ".btnEditarUsuario", function()
 
     })
 
-/**ACTIVAR USUARIO */
-$(document).on("click", ".btnActivar", function() {
-        var idActivar = $(this).attr("idUsuario");
-        var estado = $(this).attr("estadoUsuario");
+/**ACTIVAR CATEGORIA */
+$(document).on("click", ".btnActivarCat", function() {
+        var idActivar = $(this).attr("idCategoria");
+        var estado = $(this).attr("estadoCategoria");
+        console.log("ActivarId", idActivar);
+        console.log("activarCategoria", estado);
         var datos = new FormData();
         datos.append("ActivarId", idActivar);
-        datos.append("activarUsuario", estado);
+        datos.append("activarCategoria", estado);
         $.ajax({
-            url: "ajax/usuarios.ajax.php",
+            url: "ajax/categorias.ajax.php",
             method: "POST",
             data: datos,
             cache: false,
@@ -91,7 +93,7 @@ $(document).on("click", ".btnActivar", function() {
                 if (windows.matchMedia("(max-width:767px)").matches) {
 
 
-                    window.location = "Usuarios";
+                    window.location = "categorias";
                 }
             }
         })
@@ -100,12 +102,12 @@ $(document).on("click", ".btnActivar", function() {
             $(this).removeClass('btn-success');
             $(this).addClass('btn-danger');
             $(this).html('Desactivado');
-            $(this).attr('estadoUsuario', 2);
+            $(this).attr('estadoCategoria', 2);
         } else {
             $(this).removeClass('btn-danger');
             $(this).addClass('btn-success');
             $(this).html('Activado');
-            $(this).attr('estadoUsuario', 1);
+            $(this).attr('estadoCategoria', 1);
 
         }
 
