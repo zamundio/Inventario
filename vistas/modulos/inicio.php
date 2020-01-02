@@ -1,21 +1,21 @@
 <div class="content-wrapper">
 
   <section class="content-header">
-
+    
     <h1>
-
+      
       Tablero
-
+      
       <small>Panel de Control</small>
-
+    
     </h1>
 
     <ol class="breadcrumb">
-
-      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-
+      
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      
       <li class="active">Tablero</li>
-
+    
     </ol>
 
   </section>
@@ -40,10 +40,13 @@
         Start creating your amazing application!
       </div>
       <!-- /.box-body -->
-
+      <div class="box-footer">
+        Footer
+      </div>
       <!-- /.box-footer-->
     </div>
     <!-- /.box -->
+
   </section>
   <!-- /.content -->
 </div>

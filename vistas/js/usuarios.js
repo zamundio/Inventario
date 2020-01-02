@@ -87,7 +87,7 @@ $(".btnActivar").click(function() {
             success: function(respuesta) {
                 console.log("respuesta", respuesta);
                 /* Una vez Activado/Desactivado el boton, se recarga la pagina */
-                location.reload();
+                window.location = "Usuarios";
             }
         })
         if (estado == 1) {
@@ -110,27 +110,79 @@ $(".btnActivar").click(function() {
      REVISAR USUARIO REPETIDO
     =====================================*/
 $("#nuevoUsuario").change(function() {
-    $(".alert").remove();
-    var usuario = $(this).val();
+        $(".alert").remove();
+        var usuario = $(this).val();
 
-    var datos = new FormData();
-    datos.append("CheckUser", usuario);
-    $.ajax({
-        url: "ajax/usuarios.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: "json",
-        success: function(respuesta) {
-            console.log("respuesta", respuesta);
-            if (respuesta != "false") {
-                $("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe</div>');
-                $("#nuevoUsuario").val("");
+        var datos = new FormData();
+        datos.append("CheckUser", usuario);
+        $.ajax({
+            url: "ajax/usuarios.ajax.php",
+            method: "POST",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function(respuesta) {
+                console.log("respuesta", respuesta);
+                if (respuesta != "") {
+                    $("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe</div>');
+                    $("#nuevoUsuario").val("");
+                }
             }
+        })
+
+
+    })
+    /*=====================================
+    ELIMINAR USUARIO
+    =====================================*/
+
+$(".btnEliminarUsuario").click(function() {
+    var idusuario = $(this).attr("idUsuario");
+    var fotoUsuario = $(this).attr("fotoUsuario");
+    var usuario = $(this).attr("Usuario");
+    Swal({
+        title: 'Estás seguro de eliminar el usuario?',
+        text: "Si no lo está puede cancelar la acción",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borralo!'
+    }).then((result) => {
+        if (result.value) {
+
+            var datos = new FormData();
+            datos.append("idBorrarUsuario", idusuario);
+            datos.append("idFotoBorrar", fotoUsuario);
+            datos.append("usuarioBorrar", usuario);
+
+            $.ajax({
+                url: "ajax/usuarios.ajax.php",
+                method: "POST",
+                data: datos,
+                cache: false,
+                ccache: false,
+                contentType: false,
+                processData: false,
+                success: function(respuesta) {
+
+                    Swal(
+
+                        'Borrado!',
+                        'El usuario ha sido eliminado',
+                        'success'
+                    )
+                    window.location = "Usuarios";
+
+                }
+            })
+
+
+
+
         }
     })
-
 
 })

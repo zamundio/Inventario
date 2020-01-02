@@ -6,6 +6,7 @@ class AjaxUsuarios{
 public $activarUsuario;
 public $activarId;
 public $Username;
+public $foto;
 /**************************************
         EDITAR USUARIO
 ***************************************/
@@ -17,7 +18,9 @@ public function ajaxEditarUsuario(){
     $respuesta=ControladorUsuarios::ctrMostrarusuarios($item, $valor);
     echo json_encode($respuesta);
 }
-
+    /**************************************
+        SWITCH ACTIVAR/DESACTIVAR USUARIO
+     ***************************************/
 public function ajaxActivarUsuario()
     {
         $tabla = "usuarios";
@@ -29,17 +32,43 @@ public function ajaxActivarUsuario()
         $respuesta = ModeloUsuarios::mdlActualizarusuario($tabla,$item1,$valor1,$item2,$valor2);
         header("Cache-Control: no-cache");
     }
-    public function ajaxCheckUser()
+    /*************************************************
+        CHECK NOMBRE USUARIO NO DUPLICADO AGREGAR USUARIO
+     **************************************************/
+public function ajaxCheckUser()
+    {
+    $tabla = "usuarios";
+    $item = "usuario";
+    $valor = $this->Username;
+    $respuesta = ControladorUsuarios::ctrMostrarusuarios($item, $valor);
+    echo json_encode($respuesta);
+    }
+
+    /**************************************
+        ELIMINAR USUARIO
+     ***************************************/
+    public function ajaxEliminarUser()
     {
         $tabla = "usuarios";
-        $item = "usuario";
-        $valor = $this->Username;
+        $item = "id";
+        $valor = $this->idUsuario;
+        $fotoaborrar=$this->foto;
+        $usuario=$this->Username;
+        if ($fotoaborrar!=""){
 
-        $respuesta = ControladorUsuarios::ctrMostrarusuarios($item, $valor);
-        echo json_encode($respuesta);
+        }
+        unlink('../'.$fotoaborrar);
+        if (is_dir('../vistas/img/usuarios/' . $usuario.'/')){
+                rmdir('../vistas/img/usuarios/' . $usuario);
+        }
 
+
+        $respuesta = ModeloUsuarios::mdlEliminarUsuario($tabla, $valor);
+        return $respuesta;
 
     }
+
+
 
 }
 
@@ -53,7 +82,7 @@ if(isset($_POST["idUsuario"])){
 
 
 }
-
+/**Switch Activar/Desactivar usuario*/
 if (isset($_POST["activarUsuario"])) {
 
     $activar = new AjaxUsuarios();
@@ -62,11 +91,28 @@ if (isset($_POST["activarUsuario"])) {
     $activar->ajaxActivarUsuario();
 }
 
+/**No repetir usuario */
 
 if (isset($_POST["CheckUser"])) {
 $checkuser = new AjaxUsuarios();
 $checkuser->Username= $_POST["CheckUser"];
 $checkuser->ajaxCheckUser();
 }
+
+/**Eliminar usuario */
+
+if (isset($_POST["idBorrarUsuario"])) {
+    $borraruser = new AjaxUsuarios();
+    $borraruser->idUsuario = $_POST["idBorrarUsuario"];
+    if (isset($_POST["idFotoBorrar"])){
+        $borraruser->foto= $_POST["idFotoBorrar"];
+    }
+
+    $borraruser->Username=$_POST["usuarioBorrar"];
+
+    $borraruser->ajaxEliminarUser();
+
+}
+
 
 
