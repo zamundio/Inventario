@@ -35,43 +35,44 @@ $(".nuevaFoto").change(function() {
     }
 
 })
+$(document).on("click", ".btnEditarUsuario", function()
 
-$(".btnEditarUsuario").click(function() {
-    var idUsuario = $(this).attr("idUsuario");
-    var datos = new FormData();
-    datos.append("idUsuario", idUsuario);
+    {
+        var idUsuario = $(this).attr("idUsuario");
+        var datos = new FormData();
+        datos.append("idUsuario", idUsuario);
 
-    $.ajax({
-        url: "ajax/usuarios.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: "json",
-        success: function(respuesta) {
-            console.log("respuesta", respuesta);
-            $("#editarNombre").val(respuesta["nombre"]);
-            $("#editarUsuario").val(respuesta["usuario"]);
-            $("#editarPerfil").html(respuesta["perfil"]);
-            $("#editarPerfil").val(respuesta["perfil"]);
-            $(".previsualizar").attr("src", respuesta["foto"]);
-            if (respuesta["foto"] != "") {
-                $("#fotoActual").val(respuesta["foto"]);
+        $.ajax({
+            url: "ajax/usuarios.ajax.php",
+            method: "POST",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function(respuesta) {
+                console.log("respuesta", respuesta);
+                $("#editarNombre").val(respuesta["nombre"]);
+                $("#editarUsuario").val(respuesta["usuario"]);
+                $("#editarPerfil").html(respuesta["perfil"]);
                 $("#editarPerfil").val(respuesta["perfil"]);
-            } else {
-                $(".previsualizar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+                $(".previsualizar").attr("src", respuesta["foto"]);
+                if (respuesta["foto"] != "") {
+                    $("#fotoActual").val(respuesta["foto"]);
+                    $("#editarPerfil").val(respuesta["perfil"]);
+                } else {
+                    $(".previsualizar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+                }
+                $("#passwordActual").val(respuesta["password"]);
             }
-            $("#passwordActual").val(respuesta["password"]);
-        }
 
+
+        })
 
     })
 
-})
-
 /**ACTIVAR USUARIO */
-$(".btnActivar").click(function() {
+$(document).on("click", ".btnActivar", function() {
         var idActivar = $(this).attr("idUsuario");
         var estado = $(this).attr("estadoUsuario");
         var datos = new FormData();
@@ -103,7 +104,7 @@ $(".btnActivar").click(function() {
             $(this).attr('estadoUsuario', 1);
 
         }
-        //location.reload();
+
 
     })
     /*=====================================
@@ -138,7 +139,7 @@ $("#nuevoUsuario").change(function() {
     ELIMINAR USUARIO
     =====================================*/
 
-$(".btnEliminarUsuario").click(function() {
+$(document).on("click", ".btnEliminarUsuario ", function() {
     var idusuario = $(this).attr("idUsuario");
     var fotoUsuario = $(this).attr("fotoUsuario");
     var usuario = $(this).attr("Usuario");

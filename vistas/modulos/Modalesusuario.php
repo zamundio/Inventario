@@ -159,7 +159,7 @@ MODAL EDITAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="editarNombre" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+" name=" editarNombre" placeholder="" required>
+                                <input type="text" class="form-control input-lg" id="editarNombre" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+" name="editarNombre" placeholder="" required>
 
                             </div>
 
