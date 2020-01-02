@@ -13,7 +13,7 @@ class ControladorUsuarios{
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
 
-			   	$encriptar = password_hash($_POST["ingPassword"], PASSWORD_DEFAULT);
+
 
 				$tabla = "usuarios";
 
@@ -21,8 +21,9 @@ class ControladorUsuarios{
 				$valor = $_POST["ingUsuario"];
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+                $CheckPwdOK = password_verify($_POST["ingPassword"], $respuesta["password"]);
 
-				if($respuesta["usuario"] == $_POST["ingUsuario"] ){
+                if($respuesta["usuario"] == $_POST["ingUsuario"] && $CheckPwdOK){
 
 					if($respuesta["estado"] == 1){
 
