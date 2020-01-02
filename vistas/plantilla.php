@@ -33,7 +33,7 @@ session_start();
 
   <!-- Theme style -->
   <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
-  
+
   <!-- AdminLTE Skins -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
@@ -50,13 +50,13 @@ session_start();
 
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
-  
+
   <!-- Bootstrap 3.3.7 -->
   <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
   <!-- FastClick -->
   <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
-  
+
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
 
@@ -78,7 +78,7 @@ CUERPO DOCUMENTO
 ======================================-->
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
- 
+
   <?php
 
   if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
@@ -89,7 +89,7 @@ CUERPO DOCUMENTO
     CABEZOTE
     =============================================*/
 
-    include "modulos/cabezote.php";
+    include "modulos/cabecera.php";
 
     /*=============================================
     MENU
@@ -104,14 +104,14 @@ CUERPO DOCUMENTO
     if(isset($_GET["ruta"])){
 
       if($_GET["ruta"] == "inicio" ||
-         $_GET["ruta"] == "usuarios" ||
+         $_GET["ruta"] == "Usuarios" ||
          $_GET["ruta"] == "categorias" ||
          $_GET["ruta"] == "productos" ||
          $_GET["ruta"] == "clientes" ||
          $_GET["ruta"] == "ventas" ||
          $_GET["ruta"] == "crear-venta" ||
          $_GET["ruta"] == "reportes" ||
-         $_GET["ruta"] == "salir"){
+         $_GET["ruta"] == "Salir"){
 
         include "modulos/".$_GET["ruta"].".php";
 

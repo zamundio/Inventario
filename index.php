@@ -11,6 +11,7 @@ require "extensiones/UserFunctions.php";
 /*$plantilla=new controladorPlantilla();
 $plantilla->ctrPlantilla();:*/
 include "vistas/plantilla.php";
+include "vistas/modulos/Modalesusuario.php";
 
 
 

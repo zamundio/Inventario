@@ -13,7 +13,7 @@ class ControladorUsuarios{
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
 
-			   	$encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+			   	$encriptar = password_hash($_POST["ingPassword"], PASSWORD_DEFAULT);
 
 				$tabla = "usuarios";
 
@@ -37,7 +37,7 @@ class ControladorUsuarios{
 						REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
 						=============================================*/
 
-						date_default_timezone_set('America/Bogota');
+						date_default_timezone_set('Europe/Madrid');
 
 						$fecha = date('Y-m-d');
 						$hora = date('H:i:s');
@@ -162,7 +162,7 @@ class ControladorUsuarios{
 
 				$tabla = "usuarios";
 
-				$encriptar = password_hash($_POST["nuevoPassword"]);
+				$encriptar = password_hash($_POST["nuevoPassword"], PASSWORD_DEFAULT);
 
 				$datos = array("nombre" => $_POST["nuevoNombre"],
 					           "usuario" => $_POST["nuevoUsuario"],
@@ -187,7 +187,7 @@ class ControladorUsuarios{
 
 						if(result.value){
 
-							window.location = "usuarios";
+							window.location = "Usuarios";
 
 						}
 
@@ -215,7 +215,7 @@ class ControladorUsuarios{
 
 						if(result.value){
 
-							window.location = "usuarios";
+							window.location = "Usuarios";
 
 						}
 
@@ -340,7 +340,7 @@ class ControladorUsuarios{
 
 					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
 
-						$encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+						$encriptar = password_hash($_POST["editarPassword"], PASSWORD_DEFAULT);
 
 					}else{
 
@@ -354,7 +354,7 @@ class ControladorUsuarios{
 									  }).then(function(result){
 										if (result.value) {
 
-										window.location = "usuarios";
+										window.location = "Usuarios";
 
 										}
 									})
@@ -389,7 +389,7 @@ class ControladorUsuarios{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "usuarios";
+									window.location = "Usuarios";
 
 									}
 								})
@@ -411,7 +411,7 @@ class ControladorUsuarios{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "usuarios";
+							window.location = "Usuarios";
 
 							}
 						})
@@ -442,7 +442,7 @@ class ControladorUsuarios{
 
 			}
 
-			$respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+			$respuesta = ModeloUsuarios::mdlEliminarUsuario($tabla, $datos);
 
 			if($respuesta == "ok"){
 
@@ -456,7 +456,7 @@ class ControladorUsuarios{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "usuarios";
+								window.location = "Usuarios";
 
 								}
 							})

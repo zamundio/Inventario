@@ -128,7 +128,7 @@ class ModeloUsuarios{
 	BORRAR USUARIO
 	=============================================*/
 
-	static public function mdlBorrarUsuario($tabla, $datos){
+	static public function mdlEliminarUsuario($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
