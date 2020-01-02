@@ -34,6 +34,19 @@ class ControladorUsuarios{
                     $_SESSION["nombre"] = $respuesta["nombre"];
                     $_SESSION["perfil"] = $respuesta["perfil"];
                     $_SESSION["foto"] = $respuesta["foto"];
+                    /*==========================================*/
+                    /** REGISTRO ZONA HORARIA                 */
+                    /*==========================================*/
+                    date_default_timezone_set("Europe/Madrid");
+                    $fecha=date('Y-m-d');
+                    $hora = date('H:i:s');
+                    $item1= "ultimo_login";
+                    $valor1 = $fecha . " " . $hora;
+                    $item2="id";
+                    $valor2= $_SESSION["id"];
+
+
+                    $ultimologin = ModeloUsuarios::mdlActualizarusuario($tabla,$item1,$valor1,$item2,$valor2);
 
 					echo '<script>
 

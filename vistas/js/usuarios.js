@@ -72,11 +72,49 @@ $(".btnEditarUsuario").click(function() {
 
 /**ACTIVAR USUARIO */
 $(".btnActivar").click(function() {
-    var idActivar = $(this).attr("idUsuario");
-    var estado = $(this).attr("estadoUsuario");
+        var idActivar = $(this).attr("idUsuario");
+        var estado = $(this).attr("estadoUsuario");
+        var datos = new FormData();
+        datos.append("ActivarId", idActivar);
+        datos.append("activarUsuario", estado);
+        $.ajax({
+            url: "ajax/usuarios.ajax.php",
+            method: "POST",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(respuesta) {
+                console.log("respuesta", respuesta);
+                /* Una vez Activado/Desactivado el boton, se recarga la pagina */
+                location.reload();
+            }
+        })
+        if (estado == 1) {
+
+            $(this).removeClass('btn-success');
+            $(this).addClass('btn-danger');
+            $(this).html('Desactivado');
+            $(this).attr('estadoUsuario', 2);
+        } else {
+            $(this).removeClass('btn-danger');
+            $(this).addClass('btn-success');
+            $(this).html('Activado');
+            $(this).attr('estadoUsuario', 1);
+
+        }
+        //location.reload();
+
+    })
+    /*=====================================
+     REVISAR USUARIO REPETIDO
+    =====================================*/
+$("#nuevoUsuario").change(function() {
+    $(".alert").remove();
+    var usuario = $(this).val();
+
     var datos = new FormData();
-    datos.append("ActivarId", idActivar);
-    datos.append("activarUsuario", estado);
+    datos.append("CheckUser", usuario);
     $.ajax({
         url: "ajax/usuarios.ajax.php",
         method: "POST",
@@ -84,11 +122,15 @@ $(".btnActivar").click(function() {
         cache: false,
         contentType: false,
         processData: false,
+        dataType: "json",
         success: function(respuesta) {
             console.log("respuesta", respuesta);
+            if (respuesta != "false") {
+                $("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe</div>');
+                $("#nuevoUsuario").val("");
+            }
         }
     })
 
-    location.reload();
 
 })
