@@ -1,23 +1,16 @@
 <?php
 require_once "../controladores/categorias.controlador.php";
 require_once "../modelos/categorias.modelo.php";
-
+var_dump("ddudud", $_POST["CheckCategoria"]);
 class AjaxCategorias{
 public $activarCategoria;
 public $activarId;
+public $categoria;
 
 public $foto;
-/**************************************
-        EDITAR USUARIO
-***************************************/
-public $idCategoria;
-public function ajaxEditarCategoria(){
 
-    $item="id";
-    $valor=$this->idCategoria;
-    $respuesta=ControladorCategorias::ctrMostrarCategorias($item, $valor);
-    echo json_encode($respuesta);
-}
+public $idCategoria;
+
     /**************************************
         SWITCH ACTIVAR/DESACTIVAR CATEGORIA
      ***************************************/
@@ -32,57 +25,19 @@ public function ajaxActivarCategoria()
         $respuesta = ModeloCategorias::mdlActualizarCategoria($tabla,$item1,$valor1,$item2,$valor2);
         header("Cache-Control: no-cache");
     }
-    /*************************************************
-        CHECK NOMBRE USUARIO NO DUPLICADO AGREGAR USUARIO
-     **************************************************/
-public function ajaxCheckUser()
+
+    public function ajaxCheckCat()
     {
-    $tabla = "usuarios";
-    $item = "usuario";
-    $valor = $this->Username;
-    $respuesta = ControladorUsuarios::ctrMostrarusuarios($item, $valor);
-    echo json_encode($respuesta);
-    }
 
-    /**************************************
-        ELIMINAR USUARIO
-     ***************************************/
-    public function ajaxEliminarUser()
-    {
-        $tabla = "usuarios";
-        $item = "id";
-        $valor = $this->idUsuario;
-        $fotoaborrar=$this->foto;
-        $usuario=$this->Username;
-        if ($fotoaborrar!=""){
-
-        }
-        unlink('../'.$fotoaborrar);
-        if (is_dir('../vistas/img/usuarios/' . $usuario.'/')){
-                rmdir('../vistas/img/usuarios/' . $usuario);
-        }
-
-
-        $respuesta = ModeloUsuarios::mdlEliminarUsuario($tabla, $valor);
-        return $respuesta;
+        $item = "Categoria";
+        $valor = $this->categoria;
+        $respuesta = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+        json_encode($respuesta);
 
     }
-
-
-
 }
 
-if(isset($_POST["idUsuario"])){
 
-    $editar = new AjaxUsuarios();
-    $editar->idUsuario = $_POST["idUsuario"];
-
-    $editar->ajaxEditarUsuario();
-
-
-
-}
-/**Switch Activar/Desactivar usuario*/
 if (isset($_POST["activarCategoria"])) {
 
     $activar = new Ajaxcategorias();
@@ -91,29 +46,10 @@ if (isset($_POST["activarCategoria"])) {
 
     $activar->ajaxActivarCategoria();
 }
-
-/**No repetir usuario */
-
-if (isset($_POST["CheckUser"])) {
-$checkuser = new AjaxUsuarios();
-$checkuser->Username= $_POST["CheckUser"];
-$checkuser->ajaxCheckUser();
-}
-
-/**Eliminar usuario */
-
-if (isset($_POST["idBorrarUsuario"])) {
-    $borraruser = new AjaxUsuarios();
-    $borraruser->idUsuario = $_POST["idBorrarUsuario"];
-    if (isset($_POST["idFotoBorrar"])){
-        $borraruser->foto= $_POST["idFotoBorrar"];
-    }
-
-    $borraruser->Username=$_POST["usuarioBorrar"];
-
-    $borraruser->ajaxEliminarUser();
+if (isset($_POST["CheckCategoria"])) {
+    $checkcat = new Ajaxcategorias();
+    $checkcat->categoria = $_POST["CheckCategoria"];
+    $checkcat->ajaxCheckCat();
 
 }
-
-
 

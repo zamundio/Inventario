@@ -1,5 +1,5 @@
 <!--=====================================
-MODAL AGREGAR USUARIO
+MODAL AGREGAR CATEGORIA
 ======================================-->
 
 <div id="modalAgregarCategoria" class="modal fade" role="dialog">
@@ -38,24 +38,24 @@ MODAL AGREGAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
 
-                                <input type="text" class="form-control input-lg" name="nuevacategoria" placeholder="Categoria" required>
+                                <input type="text" class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" placeholder="Categoria" required>
 
                             </div>
 
                         </div>
 
-                        <!-- ENTRADA PARA EL USUARIO -->
+                        <!-- ENTRADA PARA LA DESCRIPCION -->
 
                         <div class="form-group">
 
                             <div class="input-group">
 
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span>
 
-                                <input type="text" class="form-control input-lg " name="nuevadescripcion" id="nuevaDescripcion" placeholder="Descripción" required>
+                                <input type="text" class="form-control input-lg " name="nuevaDescripcion" id="nuevaDescripcion" placeholder="Descripción" required>
 
                             </div>
-                            <!-- FIN ENTRADA PARA EL USUARIO -->
+                            <!-- FIN ENTRADA PARA LA DESCRIPCION -->
                         </div>
 
 
@@ -81,8 +81,8 @@ MODAL AGREGAR USUARIO
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
                 <?php
-                $crearUsuario = new ControladorUsuarios();
-                $crearUsuario->ctrCrearUsuario();
+                $crearCategoria = new ControladorCategorias();
+                $crearCategoria->ctrCrearCategorias();
                 ?>
                 <!-- --Fin formulario -->
             </form>
@@ -95,7 +95,7 @@ MODAL AGREGAR USUARIO
 
 
 <!--========================================================================================
-MODAL EDITAR USUARIO
+MODAL EDITAR CATEGORIA
 ===========================================================================================-->
 
 <div id="modalEditarUsuario" class="modal fade" role="dialog">

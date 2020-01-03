@@ -38,7 +38,6 @@
             </div>
             <div class="box-body">
                 <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-
                     <thead>
 
                         <tr>
@@ -89,7 +88,7 @@
                                 echo '<td><button class="btn btn-danger btn-xs btnActivarCat" idCategoria="' . $value["id"] . '" estadoCategoria="1">Desactivado</button></td>';
                             }
 
-                            echo '<td>' . $value["FechaAlta"] . '</td>;
+                            echo '<td>' . $value["FechaAlta"] . '</td>
                   <td>
 
                     <div class="btn-group">

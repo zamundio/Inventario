@@ -61,7 +61,10 @@ class ModeloCategorias{
 
         $stmt = null;
     }
+    static public function MdlCrearCategorias($tabla,$datos){
 
+
+    }
 
 
 
