@@ -1,7 +1,7 @@
 <!--=====================================
 MODAL AGREGAR USUARIO
 ======================================-->
-
+<script src="vistas/js/usuarios.js"></script>
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
     ?>
     <div class="modal-dialog" id="modalAgregarUsuario_dialog">
@@ -159,7 +159,7 @@ MODAL EDITAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="editarNombre" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+" name="editarNombre" placeholder="" required>
+                                <input type="text" class="form-control input-lg" id="editarNombre" pattern="[a-zA-Z 0-9ñÑáéíóúÁÉÍÓÚ]+" name="editarNombre" placeholder="" required>
 
                             </div>
 

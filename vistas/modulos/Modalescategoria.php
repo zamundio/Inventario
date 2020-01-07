@@ -64,7 +64,7 @@ MODAL AGREGAR CATEGORIA
                             <div class="panel">SUBIR FOTO </div>
                             <input type="file" class="nuevaFoto" name="nuevaFotoCat">
                             <p class="help-block">peso maximo de la foto 2 Mb</p>
-                            <img src="vistas\img\categorias\default\categories.png" class="img-thumbnail previsualizar" width="100px">
+                            <img src="vistas\img\categorias\default\categories.png" class="img-thumbnail previsualizarImgCat" width="100px">
                             </input>
                         </div>
                         <!--FIN ENTRADA PARA SELECCIONAR FOTO   -->
@@ -98,9 +98,9 @@ MODAL AGREGAR CATEGORIA
 MODAL EDITAR CATEGORIA
 ===========================================================================================-->
 
-<div id="modalEditarUsuario" class="modal fade" role="dialog">
+<div id="modalEditarCategoria" class="modal fade" role="dialog">
     ?>
-    <div class="modal-dialog" id="modalEditarUsuario_dialog">
+    <div class="modal-dialog" id="modalEditarCategoria_dialog">
 
         <div class="modal-content">
 
@@ -114,7 +114,7 @@ MODAL EDITAR CATEGORIA
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                    <h4 class="modal-title">Editar usuario</h4>
+                    <h4 class="modal-title">Editar Categoria</h4>
 
                 </div>
 
@@ -134,55 +134,25 @@ MODAL EDITAR CATEGORIA
 
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="editarNombre" pattern="[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+" name="editarNombre" placeholder="" required>
+                                <input type="text" class="form-control input-lg" id="editarCat" pattern="[a-zA-Z 0-9ñÑáéíóúÁÉÍÓÚ]+" name="editarCat" placeholder="" required>
 
                             </div>
 
                         </div>
-
-                        <!-- ENTRADA PARA EL USUARIO(no modificable en la edicion) -->
+                        <!-- ENTRADA PARA LA DESCRIPCION -->
 
                         <div class="form-group">
 
                             <div class="input-group">
 
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
-
-                            </div>
-                            <!-- FIN ENTRADA PARA EL USUARIO -->
-                        </div>
-
-                        <!-- ENTRADA PARA LA CONTRASEÑA -->
-
-                        <div class="form-group">
-
-                            <div class="input-group">
-
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-
-                                <input type="password" class="form-control input-lg" name="editarPassword" pattern="[a-zA-Z0-9]+" placeholder="Escriba la nueva Contraseña">
-                                <input type="hidden" id="passwordActual" name="passwordActual">
-
+                                <input type="text" class="form-control input-lg " name="editarDescripcion" id="editarDescripcion" placeholder="" required>
 
                             </div>
-                            <!-- FIN ENTRADA PARA LA CONTRASEÑA -->
+                            <!-- FIN ENTRADA PARA LA DESCRIPCION -->
                         </div>
 
-                        <!-- ENTRADA PARA SELECCIONAR EL PERFIL   -->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="editarPerfil">
-                                    <option value="" id="editarPerfil"></option>
-                                    </option>
-                                    <option value="Administrador">Administrador</option>
-                                    <option value="Usuario">Usuario</option>
-                                </select>
-                            </div>
-                            <!-- FIN ENTRADA PARA SELECCIONAR EL PERFIL   -->
-                        </div>
                         <!-- ENTRADA PARA SELECCIONAR FOTO   -->
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO </div>
@@ -204,12 +174,12 @@ MODAL EDITAR CATEGORIA
                 PIE DEL MODAL
                 ======================================-->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default pull-left">Modificar usuario</button>
+                    <button type="submit" class="btn btn-default pull-left">Modificar Categoria</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
                 <?php
-                $editarUsuario = new ControladorUsuarios();
-                $editarUsuario->ctrEditarUsuario();
+                $editarCategoria = new ControladorCategorias();
+                $editarCategoria->ctrEditarCategoria();
                 ?>
                 <!-- --Fin formulario -->
             </form>

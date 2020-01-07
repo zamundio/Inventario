@@ -1,80 +1,57 @@
-/*********************************** */
-/**SUBIENDO LA FOTO DE LA CATEGORIA      *
- *************************************/
-$(".nuevaFoto").change(function() {
-    var imagen = this.files[0];
+/*=============================================
+EDITAR CATEGORIA
+=============================================*/
+$(".tablas").on("click", ".btnEditarCategoria", function(){
 
-    if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
+	var idCategoria = $(this).attr("idCategoria");
 
-        Swal({
-            type: "error",
-            title: "La imagen debe ser JPG o PNG",
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar",
-            closeonCornfirm: true
-        })
+	var datos = new FormData();
+	datos.append("idCategoria", idCategoria);
 
-    } else if (imagen["size"] > 2000000) {
-        Swal({
-            type: "error",
-            title: "La imagen debe ser inferior a 2 Mb",
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar",
-            closeonCornfirm: true
-        })
-    } else {
+	$.ajax({
+		url: "ajax/categorias.ajax.php",
+		method: "POST",
+      	data: datos,
+      	cache: false,
+     	contentType: false,
+     	processData: false,
+     	dataType:"json",
+     	success: function(respuesta){
 
-        var datosImagen = new FileReader;
-        datosImagen.readAsDataURL(imagen);
-        $(datosImagen).on("load", function(event) {
+     		$("#editarCategoria").val(respuesta["categoria"]);
+     		$("#idCategoria").val(respuesta["id"]);
 
-            var rutaImagen = event.target.result;
-            $(".previsualizar").attr("src", rutaImagen);
+     	}
 
-        })
-    }
+	})
+
 
 })
 
+/*=============================================
+ELIMINAR CATEGORIA
+=============================================*/
+$(".tablas").on("click", ".btnEliminarCategoria", function(){
 
-/**ACTIVAR CATEGORIA */
-$(document).on("click", ".btnActivarCat", function() {
-    var idActivar = $(this).attr("idCategoria");
-    var estado = $(this).attr("estadoCategoria");
+	 var idCategoria = $(this).attr("idCategoria");
 
-    var datos = new FormData();
-    datos.append("ActivarId", idActivar);
-    datos.append("activarCategoria", estado);
-    $.ajax({
-        url: "ajax/categorias.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(respuesta) {
-            console.log("respuesta", respuesta);
-            /* Una vez Activado/Desactivado el boton, se recarga la pagina */
-            if (windows.matchMedia("(max-width:767px)").matches) {
+	 swal({
+	 	title: '¿Está seguro de borrar la categoría?',
+	 	text: "¡Si no lo está puede cancelar la acción!",
+	 	type: 'warning',
+	 	showCancelButton: true,
+	 	confirmButtonColor: '#3085d6',
+	 	cancelButtonColor: '#d33',
+	 	cancelButtonText: 'Cancelar',
+	 	confirmButtonText: 'Si, borrar categoría!'
+	 }).then(function(result){
 
+	 	if(result.value){
 
-                window.location = "categorias";
-            }
-        }
-    })
-    if (estado == 1) {
+	 		window.location = "index.php?ruta=categorias&idCategoria="+idCategoria;
 
-        $(this).removeClass('btn-success');
-        $(this).addClass('btn-danger');
-        $(this).html('Desactivado');
-        $(this).attr('estadoCategoria', 2);
-    } else {
-        $(this).removeClass('btn-danger');
-        $(this).addClass('btn-success');
-        $(this).html('Activado');
-        $(this).attr('estadoCategoria', 1);
+	 	}
 
-    }
-
+	 })
 
 })
