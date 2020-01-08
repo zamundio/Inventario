@@ -13,7 +13,7 @@ static public function ctrMostrarCategorias($item, $valor){
 
     }
 
-    static public function ctrCrearCategorias()
+    static public function ctrCrearCategoria()
     {
 
         if (isset($_POST["nuevaCategoria"])) {

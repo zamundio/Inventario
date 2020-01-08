@@ -1,57 +1,35 @@
-/*=============================================
-EDITAR CATEGORIA
-=============================================*/
-$(".tablas").on("click", ".btnEditarCategoria", function(){
+$(".tablas").on("click", ".btnEditarCategoria", function() {
 
-	var idCategoria = $(this).attr("idCategoria");
+    idCategoria = $(this).attr("idCategoria");
 
-	var datos = new FormData();
-	datos.append("idCategoria", idCategoria);
-
-	$.ajax({
-		url: "ajax/categorias.ajax.php",
-		method: "POST",
-      	data: datos,
-      	cache: false,
-     	contentType: false,
-     	processData: false,
-     	dataType:"json",
-     	success: function(respuesta){
-
-     		$("#editarCategoria").val(respuesta["categoria"]);
-     		$("#idCategoria").val(respuesta["id"]);
-
-     	}
-
-	})
+    var datos = new FormData();
+    datos.append("Categoria", 'Tablets');
 
 
-})
-
-/*=============================================
-ELIMINAR CATEGORIA
-=============================================*/
-$(".tablas").on("click", ".btnEliminarCategoria", function(){
-
-	 var idCategoria = $(this).attr("idCategoria");
-
-	 swal({
-	 	title: '¿Está seguro de borrar la categoría?',
-	 	text: "¡Si no lo está puede cancelar la acción!",
-	 	type: 'warning',
-	 	showCancelButton: true,
-	 	confirmButtonColor: '#3085d6',
-	 	cancelButtonColor: '#d33',
-	 	cancelButtonText: 'Cancelar',
-	 	confirmButtonText: 'Si, borrar categoría!'
-	 }).then(function(result){
-
-	 	if(result.value){
-
-	 		window.location = "index.php?ruta=categorias&idCategoria="+idCategoria;
-
-	 	}
-
-	 })
-
-})
+    $.ajax({
+            // En data puedes utilizar un objeto JSON, un array o un query string
+            data: {
+                "idCat": 1
+            },
+            //Cambiar a type: POST si necesario
+            type: "POST",
+            // Formato de datos que se espera en la respuesta
+            dataType: "json",
+            // URL a la que se enviará la solicitud Ajax
+            url: "ajax/categorias.ajax.php",
+        })
+        .done(function(data, textStatus, jqXHR) {
+            if (console && console.log) {
+                console.log("La solicitud se ha completado correctamente.");
+                console.log(data);
+                $("#editarCategoria").val(data["Categoria"]);
+                $("#idCategoria").val(data["id"]);
+                $("#editarDescripcion").val(data["Descripción"]);
+            }
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            if (console && console.log) {
+                console.log("La solicitud ha fallado: " + textStatus);
+            }
+        });
+});

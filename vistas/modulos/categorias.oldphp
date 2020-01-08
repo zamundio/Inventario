@@ -59,7 +59,7 @@
                         <?php
 
                         $item = null;
-                        $valor =null;
+                        $valor = null;
 
                         $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
