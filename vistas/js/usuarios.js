@@ -72,7 +72,7 @@ $(".tablas").on("click", ".btnEditarUsuario", function() {
             $("#editarUsuario").val(respuesta["usuario"]);
             $("#editarPerfil").html(respuesta["perfil"]);
             $("#editarPerfil").val(respuesta["perfil"]);
-            $("#fotoActual").val(respuesta["foto"]);
+            $("#editarFoto").val(respuesta["foto"]);
 
             $("#passwordActual").val(respuesta["password"]);
 
@@ -119,7 +119,7 @@ $(".tablas").on("click", ".btnActivar", function() {
                 }).then(function(result) {
                     if (result.value) {
 
-                        window.location = "usuarios";
+                        window.location = "Usuarios";
 
                     }
 
@@ -212,7 +212,7 @@ $(".tablas").on("click", ".btnEliminarUsuario", function() {
 
         if (result.value) {
 
-            window.location = "index.php?ruta=usuarios&idUsuario=" + idUsuario + "&usuario=" + usuario + "&fotoUsuario=" + fotoUsuario;
+            window.location = "index.php?ruta=Usuarios&idUsuario=" + idUsuario + "&usuario=" + usuario + "&fotoUsuario=" + fotoUsuario;
 
         }
 

@@ -251,6 +251,31 @@ class ModeloCategorias{
         }
     }
 
+    static public function mdlEliminarCategorias($item, $valor){
+
+        $tabla="categorias";
+
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE $item = :valor");
+
+        $stmt->bindParam(":valor", $valor, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return "error";
+        }
+
+
+
+        $stmt = null;
+    }
+
+
+
+
+
 
 
 

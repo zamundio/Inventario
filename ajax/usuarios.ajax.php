@@ -72,9 +72,7 @@ if(isset($_POST["idUsuario"])){
 
 }
 
-/*=============================================
-ACTIVAR USUARIO
-=============================================*/
+
 
 /*=============================================
 VALIDAR NO REPETIR USUARIO
@@ -85,9 +83,17 @@ if (isset($_POST['idCheckUser'])) {
     $checkuser = new AjaxUsuarios();
     $checkuser->usuario = $_POST['idCheckUser'];
     $checkuser->ajaxValidarUsuario();
-
-    //Aunque el content-type no sea un problema en la mayoría de casos, es recomendable especificarlo
-
 }
 
+/*=============================================
+ACTIVAR USUARIO
+=============================================*/
+if (isset($_POST['activarId'])) {
+    $activarUser = new AjaxUsuarios();
+    $activarUser->activarId = $_POST['activarId'];
+    $activarUser->activarUsuario = $_POST['activarUsuario'];
+    $activarUser->ajaxActivarUsuario();
+
+
+}
 

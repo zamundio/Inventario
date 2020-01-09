@@ -263,5 +263,43 @@ static public function ctrMostrarCategorias($item, $valor){
             }
         }
     }
+static public function ctrBorrarCategorias(){
+
+    if ($_GET["idCategoria"]){
+        $tabla="categorias";
+        $item="id";
+        $valor= $_GET["idCategoria"];
+            if ($_GET["fotoCat"] != "") {
+
+                unlink($_GET["fotoCat"]);
+                rmdir('vistas/img/usuarios/' . $_GET["categoria"]);
+            }
+            $respuesta=ModeloCategorias::mdlEliminarCategorias($item,$valor);
+            if ($respuesta == "ok") {
+
+                echo '<script>
+
+				swal({
+					  type: "success",
+					  title: "La categoria ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "categorias";
+
+								}
+							})
+
+				</script>';
+            }
+
+    }
+
+
+}
+
+
 }
 
