@@ -1,7 +1,7 @@
 <!--=====================================
 MODAL AGREGAR USUARIO
 ======================================-->
-<script src="vistas/js/usuarios.js"></script>
+
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
     ?>
     <div class="modal-dialog" id="modalAgregarUsuario_dialog">
@@ -52,7 +52,7 @@ MODAL AGREGAR USUARIO
 
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario" placeholder="Usuario" required>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario" placeholder="Usuario"  required>
 
                             </div>
                             <!-- FIN ENTRADA PARA EL USUARIO -->
@@ -60,56 +60,56 @@ MODAL AGREGAR USUARIO
 
                         <!-- ENTRADA PARA LA CONTRASEÑA -->
 
-                        <div class="form-group">
+                        <div class=" form-group">
 
-                            <div class="input-group">
+                                <div class="input-group">
 
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Contraseña" required>
+                                    <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Contraseña" required>
 
+                                </div>
+                                <!-- FIN ENTRADA PARA LA CONTRASEÑA -->
                             </div>
-                            <!-- FIN ENTRADA PARA LA CONTRASEÑA -->
+
+                            <!-- ENTRADA PARA SELECCIONAR EL PERFIL   -->
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                    <select class="form-control input-lg" name="nuevoPerfil" required>
+                                        <option value="">Seleccionar Perfil</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Usuario">Usuario</option>
+                                    </select>
+                                </div>
+                                <!-- FIN ENTRADA PARA SELECCIONAR EL PERFIL   -->
+                            </div>
+                            <!-- ENTRADA PARA SELECCIONAR FOTO   -->
+                            <div class="form-group">
+                                <div class="panel">SUBIR FOTO </div>
+                                <input type="file" class="nuevaFoto" name="nuevaFoto">
+                                <p class="help-block">peso maximo de la foto 2 Mb</p>
+                                <img src="vistas\img\usuarios\default\anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                                </input>
+                            </div>
+                            <!--FIN ENTRADA PARA SELECCIONAR FOTO   -->
+
                         </div>
 
-                        <!-- ENTRADA PARA SELECCIONAR EL PERFIL   -->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="nuevoPerfil" required>
-                                    <option value="">Seleccionar Perfil</option>
-                                    <option value="Administrador">Administrador</option>
-                                    <option value="Usuario">Usuario</option>
-                                </select>
-                            </div>
-                            <!-- FIN ENTRADA PARA SELECCIONAR EL PERFIL   -->
-                        </div>
-                        <!-- ENTRADA PARA SELECCIONAR FOTO   -->
-                        <div class="form-group">
-                            <div class="panel">SUBIR FOTO </div>
-                            <input type="file" class="nuevaFoto" name="nuevaFoto">
-                            <p class="help-block">peso maximo de la foto 2 Mb</p>
-                            <img src="vistas\img\usuarios\default\anonymous.png" class="img-thumbnail previsualizar" width="100px">
-                            </input>
-                        </div>
-                        <!--FIN ENTRADA PARA SELECCIONAR FOTO   -->
+
 
                     </div>
 
-
-
-                </div>
-
-                <!-- PIE MODAL -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-default pull-left">Guardar Cambios</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                </div>
-                <?php
-                $crearUsuario = new ControladorUsuarios();
-                $crearUsuario->ctrCrearUsuario();
-                ?>
-                <!-- --Fin formulario -->
+                    <!-- PIE MODAL -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default pull-left">Guardar Cambios</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                    <?php
+                    $crearUsuario = new ControladorUsuarios();
+                    $crearUsuario->ctrCrearUsuario();
+                    ?>
+                    <!-- --Fin formulario -->
             </form>
             <!--  class="modal-content"-->
         </div>

@@ -37,3 +37,13 @@ if (isset($_POST["idCat"])) {
     $editarCat->ajaxEditarCategorias();
 
 }
+
+if (isset($_POST["Categoria"])) {
+
+    $tabla = "categorias";
+    $item = "Categoria";
+    $valor = $_POST["Categoria"];
+
+    $respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
+    echo json_encode($respuesta);
+}

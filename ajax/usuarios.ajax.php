@@ -7,10 +7,10 @@ class AjaxUsuarios{
 
 	/*=============================================
 	EDITAR USUARIO
-	=============================================*/	
+	=============================================*/
 
 	public $idUsuario;
-
+    public $usuario;
 	public function ajaxEditarUsuario(){
 
 		$item = "id";
@@ -24,7 +24,7 @@ class AjaxUsuarios{
 
 	/*=============================================
 	ACTIVAR USUARIO
-	=============================================*/	
+	=============================================*/
 
 	public $activarUsuario;
 	public $activarId;
@@ -46,14 +46,13 @@ class AjaxUsuarios{
 
 	/*=============================================
 	VALIDAR NO REPETIR USUARIO
-	=============================================*/	
+	=============================================*/
 
-	public $validarUsuario;
 
 	public function ajaxValidarUsuario(){
 
 		$item = "usuario";
-		$valor = $this->validarUsuario;
+		$valor = $this->usuario;
 
 		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
@@ -75,25 +74,20 @@ if(isset($_POST["idUsuario"])){
 
 /*=============================================
 ACTIVAR USUARIO
-=============================================*/	
-
-if(isset($_POST["activarUsuario"])){
-
-	$activarUsuario = new AjaxUsuarios();
-	$activarUsuario -> activarUsuario = $_POST["activarUsuario"];
-	$activarUsuario -> activarId = $_POST["activarId"];
-	$activarUsuario -> ajaxActivarUsuario();
-
-}
+=============================================*/
 
 /*=============================================
 VALIDAR NO REPETIR USUARIO
 =============================================*/
 
-if(isset( $_POST["validarUsuario"])){
+if (isset($_POST['idCheckUser'])) {
 
-	$valUsuario = new AjaxUsuarios();
-	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
-	$valUsuario -> ajaxValidarUsuario();
+    $checkuser = new AjaxUsuarios();
+    $checkuser->usuario = $_POST['idCheckUser'];
+    $checkuser->ajaxValidarUsuario();
+
+    //Aunque el content-type no sea un problema en la mayoría de casos, es recomendable especificarlo
 
 }
+
+
