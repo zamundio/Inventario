@@ -15,12 +15,12 @@ static public function ctrMostrarCategorias($item, $valor){
 
     static public function ctrCrearCategoria()
     {
-
+        $ruta = "";
         if (isset($_POST["nuevaCategoria"])) {
-            if (preg_match('/^[a-zA-Z 0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"]) && preg_match('/^[a-zA-Z 0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]))
+            if (preg_match('/^[a-zA-Z 0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"]) && preg_match('/^[a-zA-Z 0-9.,-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]))
             {
 
-                $ruta = "";
+
 
                 if (isset($_FILES["nuevaFotoCat"]["tmp_name"])) {
 
@@ -88,35 +88,61 @@ static public function ctrMostrarCategorias($item, $valor){
                 $hora = date('H:i:s');
 
                 $fechaActual = $fecha . ' ' . $hora;
-                $datos = array("Categoria" => $_POST["nuevaCategoria"],
+                $datos = array("categoria" => $_POST["nuevaCategoria"],
                                "descripcion" => $_POST["nuevaDescripcion"],
-                                "estado"=>"1",
                                  "foto"=>$ruta,
                                 "fechaAlta" => $fechaActual );
 
-            $respuesta = ModeloCategorias::MdlCrearCategorias($tabla,$datos);
+            $respuesta=ModeloCategorias::MdlCrearCategorias($tabla,$datos);
 
-            return $respuesta;
+                if ($respuesta == "ok") {
+
+                    echo '<script>
+
+					swal({
+
+						type: "success",
+						title: "¡La categoria ha sido creada correctamente!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+
+					}).then(function(result){
+
+						if(result.value){
+
+							window.location = "categorias";
+
+						}
+
+					});
+
+
+					</script>';
+                }
         }
         }
     }
 
+/*=============================================
+				EDITAR CATEGORIA
+=============================================*/
+
+
     static public function ctrEditarCategoria()
     {
 
-        if (isset($_POST["editarUsuario"])) {
-
-            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombre"])) {
+        if (isset($_POST["editarCategoria"])) {
+            if (preg_match('/^[a-zA-Z 0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"]) && preg_match('/^[a-zA-Z 0-9.,-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"])) {
 
                 /*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
-                $ruta = $_POST["fotoActual"];
+                $ruta = $_POST["fotoActualCat"];
 
-                if (isset($_FILES["editarFoto"]["tmp_name"]) && !empty($_FILES["editarFoto"]["tmp_name"])) {
+                if (isset($_FILES["editarFotoCat"]["tmp_name"]) && !empty($_FILES["editarFotoCat"]["tmp_name"])) {
 
-                    list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
+                    list($ancho, $alto) = getimagesize($_FILES["editarFotoCat"]["tmp_name"]);
 
                     $nuevoAncho = 500;
                     $nuevoAlto = 500;
@@ -125,15 +151,15 @@ static public function ctrMostrarCategorias($item, $valor){
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-                    $directorio = "vistas/img/usuarios/" . $_POST["editarUsuario"];
+                    $directorio = "vistas/img/categorias/" . $_POST["editarCategoria"];
 
                     /*=============================================
 					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
 					=============================================*/
 
-                    if (!empty($_POST["fotoActual"])) {
+                    if (!empty($_POST["fotoActualCat"])) {
 
-                        unlink($_POST["fotoActual"]);
+                        unlink($_POST["fotoActualCat"]);
                     } else {
 
                         mkdir($directorio, 0755);
@@ -143,7 +169,7 @@ static public function ctrMostrarCategorias($item, $valor){
 					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 					=============================================*/
 
-                    if ($_FILES["editarFoto"]["type"] == "image/jpeg") {
+                    if ($_FILES["editarFotoCat"]["type"] == "image/jpeg") {
 
                         /*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -151,9 +177,9 @@ static public function ctrMostrarCategorias($item, $valor){
 
                         $aleatorio = mt_rand(100, 999);
 
-                        $ruta = "vistas/img/usuarios/" . $_POST["editarUsuario"] . "/" . $aleatorio . ".jpg";
+                        $ruta = "vistas/img/categorias/" . $_POST["editarCategoria"] . "/" . $aleatorio . ".jpg";
 
-                        $origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);
+                        $origen = imagecreatefromjpeg($_FILES["editarFotoCat"]["tmp_name"]);
 
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -162,7 +188,7 @@ static public function ctrMostrarCategorias($item, $valor){
                         imagejpeg($destino, $ruta);
                     }
 
-                    if ($_FILES["editarFoto"]["type"] == "image/png") {
+                    if ($_FILES["editarFotoCat"]["type"] == "image/png") {
 
                         /*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -170,9 +196,9 @@ static public function ctrMostrarCategorias($item, $valor){
 
                         $aleatorio = mt_rand(100, 999);
 
-                        $ruta = "vistas/img/usuarios/" . $_POST["editarUsuario"] . "/" . $aleatorio . ".png";
+                        $ruta = "vistas/img/categorias/" . $_POST["editarCategoria"] . "/" . $aleatorio . ".png";
 
-                        $origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);
+                        $origen = imagecreatefrompng($_FILES["editarFotoCat"]["tmp_name"]);
 
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -181,47 +207,17 @@ static public function ctrMostrarCategorias($item, $valor){
                         imagepng($destino, $ruta);
                     }
                 }
+                $tabla = "categorias";
 
-                $tabla = "usuarios";
 
-                if ($_POST["editarPassword"] != "") {
-
-                    if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])) {
-
-                        $encriptar = password_hash($_POST["editarPassword"], PASSWORD_DEFAULT);
-                    } else {
-
-                        echo '<script>
-
-								swal({
-									  type: "error",
-									  title: "¡La contraseña no puede ir vacía o llevar caracteres especiales!",
-									  showConfirmButton: true,
-									  confirmButtonText: "Cerrar"
-									  }).then(function(result){
-										if (result.value) {
-
-										window.location = "Usuarios";
-
-										}
-									})
-
-						  	</script>';
-                    }
-                } else {
-
-                    $encriptar = $_POST["passwordActual"];
-                }
 
                 $datos = array(
-                    "nombre" => $_POST["editarNombre"],
-                    "usuario" => $_POST["editarUsuario"],
-                    "password" => $encriptar,
-                    "perfil" => $_POST["editarPerfil"],
+                    "Categoria" => $_POST["editarCategoria"],
+                    "Descripción" => $_POST["editarDescripcion"],
                     "foto" => $ruta
                 );
 
-                $respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
+                $respuesta = ModeloCategorias::mdlEditarCategorias($datos);
 
                 if ($respuesta == "ok") {
 
@@ -229,13 +225,13 @@ static public function ctrMostrarCategorias($item, $valor){
 
 					swal({
 						  type: "success",
-						  title: "El usuario ha sido editado correctamente",
+						  title: "La categoria ha sido editada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "Usuarios";
+									window.location = "categorias";
 
 									}
 								})
@@ -254,7 +250,7 @@ static public function ctrMostrarCategorias($item, $valor){
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "Categorias";
+							window.location = "categorias";
 
 							}
 						})
@@ -264,9 +260,8 @@ static public function ctrMostrarCategorias($item, $valor){
         }
     }
 static public function ctrBorrarCategorias(){
-
+    if (isset ($_GET["idCategoria"])){
     if ($_GET["idCategoria"]){
-        $tabla="categorias";
         $item="id";
         $valor= $_GET["idCategoria"];
             if ($_GET["fotoCat"] != "") {
@@ -274,7 +269,7 @@ static public function ctrBorrarCategorias(){
                 unlink($_GET["fotoCat"]);
                 rmdir('vistas/img/usuarios/' . $_GET["categoria"]);
             }
-            $respuesta=ModeloCategorias::mdlEliminarCategorias($item,$valor);
+           $respuesta=ModeloCategorias::mdlEliminarCategorias($item,$valor);
             if ($respuesta == "ok") {
 
                 echo '<script>
@@ -297,9 +292,10 @@ static public function ctrBorrarCategorias(){
 
     }
 
-
+    }
 }
 
 
 }
+
 

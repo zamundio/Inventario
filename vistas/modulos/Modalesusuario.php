@@ -86,9 +86,7 @@ MODAL AGREGAR USUARIO
 
                                     <option value="Administrador">Administrador</option>
 
-                                    <option value="Especial">Especial</option>
-
-                                    <option value="Vendedor">Vendedor</option>
+                                    <option value="Usuario">Usuario</option>
 
                                 </select>
 
@@ -231,7 +229,7 @@ MODAL EDITAR USUARIO
 
                                     <option value="Administrador">Administrador</option>
 
-                                    <option value="Usuario">Especial</option>
+                                    <option value="Usuario">Usuario</option>
 
                                 </select>
 

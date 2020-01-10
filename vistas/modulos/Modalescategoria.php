@@ -8,7 +8,7 @@ MODAL AGREGAR CATEGORÍA
 
         <div class="modal-content">
 
-            <form role="form" method="post">
+            <form role="form" method="post" enctype="multipart/form-data">
 
                 <!--=====================================
         CABEZA DEL MODAL
@@ -54,7 +54,17 @@ MODAL AGREGAR CATEGORÍA
                             </div>
 
                         </div>
+                        <div class="form-group">
 
+                            <div class="panel">SUBIR FOTO</div>
+
+                            <input type="file" class="nuevaFotoCat" name="nuevaFotoCat">
+
+                            <p class="help-block">Peso máximo de la foto 2MB</p>
+
+                            <img src="vistas/img/categorias/default/categories.png" class="img-thumbnail previsualizarcat" width="100px">
+
+                        </div>
 
 
 
@@ -70,7 +80,7 @@ MODAL AGREGAR CATEGORÍA
 
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-                    <button type="submit" class="btn btn-primary">Guardar categoría</button>
+                    <button type="submit" class="btn btn-primary">Crear categoría</button>
 
                 </div>
 
@@ -99,7 +109,7 @@ MODAL EDITAR CATEGORÍA
 
         <div class="modal-content">
 
-            <form role="form" method="post">
+            <form role="form" method="post" enctype="multipart/form-data">
 
                 <!--=====================================
         CABEZA DEL MODAL
@@ -145,10 +155,20 @@ MODAL EDITAR CATEGORÍA
 
                                 <input type="text" class="form-control input-lg" name="editarDescripcion" id="editarDescripcion" required>
 
+                            </div>
 
+                            <div class="form-group">
 
+                                <div class="panel">SUBIR FOTO</div>
+
+                                <input type="file" class="nuevaFotoCat" name="editarFotoCat">
+
+                                <p class="help-block">Peso máximo de la foto 2MB</p>
+
+                                <img src="vistas/img/categorias/default/categories.png" class="img-thumbnail previsualizarcat" width="100px">
 
                             </div>
+
 
                         </div>
                     </div>

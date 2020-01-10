@@ -73,13 +73,15 @@ $(".tablas").on("click", ".btnEditarUsuario", function() {
             $("#editarPerfil").html(respuesta["perfil"]);
             $("#editarPerfil").val(respuesta["perfil"]);
             $("#editarFoto").val(respuesta["foto"]);
-
+            console.log(respuesta["foto"]);
             $("#passwordActual").val(respuesta["password"]);
 
             if (respuesta["foto"] != "") {
 
                 $(".previsualizar").attr("src", respuesta["foto"]);
 
+            } else {
+                $(".previsualizar").attr("src", "vistas/img/usuarios/default/anonymous.png")
             }
 
         }

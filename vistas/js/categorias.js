@@ -1,3 +1,56 @@
+/*=============================================
+SUBIENDO LA FOTO DE LA categoria
+=============================================*/
+$(".nuevaFotoCat").change(function() {
+
+    var imagen = this.files[0];
+
+    /*=============================================
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+  	=============================================*/
+
+    if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
+
+        $(".nuevaFotoCat").val("");
+
+        swal({
+            title: "Error al subir la imagen",
+            text: "¡La imagen debe estar en formato JPG o PNG!",
+            type: "error",
+            confirmButtonText: "¡Cerrar!"
+        });
+
+    } else if (imagen["size"] > 2000000) {
+
+        $(".nuevaFotoCat").val("");
+
+        swal({
+            title: "Error al subir la imagen",
+            text: "¡La imagen no debe pesar más de 2MB!",
+            type: "error",
+            confirmButtonText: "¡Cerrar!"
+        });
+
+    } else {
+
+        var datosImagen = new FileReader;
+        datosImagen.readAsDataURL(imagen);
+
+        $(datosImagen).on("load", function(event) {
+
+            var rutaImagen = event.target.result;
+
+
+            $(".previsualizarcat").attr("src", rutaImagen);
+
+
+        })
+
+    }
+})
+
+
+
 /* Recoge el codigo de la Categoria  al pulsar en el boton de EditarCategoria*/
 $(".tablas").on("click", ".btnEditarCategoria", function() {
 
@@ -18,11 +71,21 @@ $(".tablas").on("click", ".btnEditarCategoria", function() {
         })
         .done(function(data, textStatus, jqXHR) {
             if (console && console.log) {
-                console.log("La solicitud se ha completado correctamente.");
-                console.log(data);
+
+
                 $("#editarCategoria").val(data["Categoria"]);
                 $("#idCategoria").val(data["id"]);
                 $("#editarDescripcion").val(data["Descripción"]);
+                $("#editarFotoCat").val(data["foto"]);
+                console.log(data["foto"]);
+                if (data["foto"] != "") {
+
+                    $(".previsualizarcat").attr("src", data["foto"]);
+
+                } else {
+                    $(".previsualizarcat").attr("src", "vistas/img/categorias/default/categories.png")
+                }
+
             }
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
