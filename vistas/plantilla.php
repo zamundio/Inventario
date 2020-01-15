@@ -96,7 +96,7 @@ CUERPO DOCUMENTO
     MENU
     =============================================*/
 
-        include "modulos/menu.php";
+        include "modulos/menulateral.php";
 
         /*=============================================
     CONTENIDO
@@ -108,8 +108,8 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "inicio" ||
                 $_GET["ruta"] == "Usuarios" ||
                 $_GET["ruta"] == "categorias" ||
-                $_GET["ruta"] == "productos" ||
-                $_GET["ruta"] == "clientes" ||
+                $_GET["ruta"] == "delegados" ||
+                $_GET["ruta"] == "inventario" ||
                 $_GET["ruta"] == "ventas" ||
                 $_GET["ruta"] == "crear-venta" ||
                 $_GET["ruta"] == "reportes" ||
@@ -117,7 +117,6 @@ CUERPO DOCUMENTO
             ) {
 
                 include "modulos/" . $_GET["ruta"] . ".php";
-
             } else {
 
                 include "modulos/404.php";
@@ -145,6 +144,7 @@ CUERPO DOCUMENTO
     <script src="vistas/js/plantilla.js"></script>
     <script src="vistas/js/usuarios.js"></script>
     <script src="vistas/js/categorias.js"></script>
+    <script src="vistas/js/delegados.js"></script>
 
 </body>
 

@@ -22,7 +22,30 @@ class AjaxCategorias{
 
 	}
 
+/*=============================================
+	ACTIVAR CATEGORIAS
+	=============================================*/
+
+    public $activarCat;
+    public $activarIdCat;
+
+
+    public function ajaxActivarCategoria()
+    {
+
+        $tabla = "categorias";
+
+        $item1 = "estado";
+        $valor1 = $this->activarCat;
+
+        $item2 = "id";
+        $valor2 = $this->activarIdCat;
+
+        $respuesta = ModeloCategorias::mdlActualizarCategoria($tabla, $item1, $valor1, $item2, $valor2);
+    }
+
 }
+
 
 
 
@@ -46,4 +69,22 @@ if (isset($_POST["Categoria"])) {
 
     $respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
     echo json_encode($respuesta);
+}
+
+
+/*=============================================
+ACTIVAR CATEGORIAS
+=============================================*/
+if (isset($_POST["ActivaridCat"])) {
+
+
+   $activarCat = new AjaxCategorias;
+    $activarCat->activarIdCat = $_POST["ActivaridCat"];
+    $activarCat->activarCat = $_POST["estadoCat"];
+
+
+    $activarCat->ajaxActivarCategoria();
+
+
+
 }

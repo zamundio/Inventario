@@ -94,6 +94,58 @@ $(".tablas").on("click", ".btnEditarCategoria", function() {
             }
         });
 });
+/*=============================================
+ACTIVAR CATEGORIA
+=============================================*/
+$(".tablas").on("click", ".btnActivarCat", function() {
+
+    var idCat = $(this).attr("idCategoria");
+    var estadoCat = $(this).attr("estadoCategoria");
+
+
+
+    $.ajax({
+            // En data puedes utilizar un objeto JSON, un array o un query string
+            data: {
+                "ActivaridCat": idCat,
+                "estadoCat": estadoCat
+            },
+            //Cambiar a type: POST si necesario
+            type: "POST",
+            // Formato de datos que se espera en la respuesta
+
+            // URL a la que se enviará la solicitud Ajax
+            url: "ajax/categorias.ajax.php",
+        })
+        .done(function(data, textStatus, jqXHR) {
+            console.log(data);
+            console.log("La solicitud ha FUNCIONADO: " + textStatus);
+
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            if (console && console.log) {
+                console.log("La solicitud ha fallado: " + textStatus);
+            }
+        });
+    if (estadoCat == 0) {
+
+        $(this).removeClass('btn-success');
+        $(this).addClass('btn-danger');
+        $(this).html('Desactivado');
+        $(this).attr('estadoCategoria', 1);
+
+    } else {
+
+        $(this).addClass('btn-success');
+        $(this).removeClass('btn-danger');
+        $(this).html('Activado');
+        $(this).attr('estadoCategoria', 0);
+
+    }
+
+})
+
+
 
 /*=============================================
 REVISAR SI lA CATEGORIA YA ESTÁ REGISTRADA
