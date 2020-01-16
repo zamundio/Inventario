@@ -97,19 +97,35 @@ MODAL EDITAR USUARIO
                             </div>
 
                         </div>
-                        <!-- sim -->
                         <div class="form-group">
-
+                            <div class="row col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input type="text" class="form-control input-lg CheckTelf" id="editarNumTelf" name="editarNumTelf" pattern=" \d{9}" value=""  data-toggle="tooltip" data-placement="center" title="Telefono" >
+                                    <input type="hidden" id="telfActual" name="telfActual">
+                                </div>
+                            </div>
                             <div class="row col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-wifi"></i></span>
-                                    <input type="text" class="form-control input-lg CheckSIM" id="editarSIM" name="editarSIM" data-toggle="tooltip" data-placement="right" title="Numero Tarjeta SIM" value="">
+                                    <input type="text" class="form-control input-lg col-xs-4 CheckSIM" id="editarSIM" name="editarSIM" data-toggle="tooltip" pattern=" \d{12}"   data-placement="right" title="Numero Tarjeta SIM" value="">
                                 </div>
                             </div>
+
+                        </div>
+
+                         <div class="form-group">
+                            <div class="input-group"></div>
+                            <div class="row col"></div>
+                        </div>
+
+                        <div class="form-group">
+
+
                             <div class="row col-xs-4">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                    <input type="text" class="form-control input-lg" id="editarPIN" name="editarPIN" data-toggle="tooltip" data-placement="center" title="PIN"  value="">
+                                    <input type="text" class="form-control input-lg" id="editarPIN" name="editarPIN" data-toggle="tooltip" data-placement="center" title="PIN" value="">
                                 </div>
                             </div>
                             <div class="row col-md-4">
@@ -118,6 +134,7 @@ MODAL EDITAR USUARIO
                                     <input type="text" class="form-control input-lg" id="editarPUK" name="editarPUK" data-toggle="tooltip" data-placement="left" title="PUK" value="">
                                 </div>
                             </div>
+                        <input type="hidden" id="SIMactual" name="SIMactual">
                         </div>
 
 
@@ -125,7 +142,7 @@ MODAL EDITAR USUARIO
 
 
 
-                        <!-- movil -->
+
 
 
 
@@ -149,8 +166,8 @@ MODAL EDITAR USUARIO
 
                 <?php
 
-                $editarUsuario = new ControladorUsuarios();
-                $editarUsuario->ctrEditarUsuario();
+                /*$editarDelegado =new ControladorDelegados;
+                $editarDelegado->ctrEditarDelegadosView();*/
 
                 ?>
 

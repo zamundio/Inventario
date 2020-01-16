@@ -11,6 +11,7 @@ class AjaxDelegados
 	=============================================*/
     public $idDelegado;
     public $NumeroSIM;
+    PUBLIC $NumeroTelf;
     public function ajaxEditarDelegados()
     {
         $tabla = "delegados_ga";
@@ -31,6 +32,21 @@ class AjaxDelegados
         $respuesta = ModeloDelegados::mdlMostrardelegados($tabla, $item, $valor);
         echo json_encode($respuesta);
     }
+
+    /*=============================================
+	CHECKEAR NUMERO TELF EXISTENTE
+	=============================================*/
+public function ajaxCheckTelf()
+    {
+
+        $item = "Movil";
+        $valor =$this->NumeroTelf;
+        $respuesta=ControladorDelegados::ctrEditarDelegadosView($item,$valor);
+
+        echo json_encode($respuesta);
+    }
+
+
 
 }
 
@@ -57,5 +73,13 @@ if (isset($_POST["NumeroSIM"])) {
     $CheckSIM->NumeroSIM = $_POST["NumeroSIM"];
     $CheckSIM->ajaxCheckSIM();
 }
+/*=============================================
+CHECKEAR NUMERO TELF EXISTENTE
+=============================================*/
+if (isset($_POST["NumeroTelf"])) {
 
 
+    $CheckTelf = new AjaxDelegados;
+    $CheckTelf->NumeroTelf = $_POST["NumeroTelf"];
+    $CheckTelf->ajaxCheckTelf();
+}

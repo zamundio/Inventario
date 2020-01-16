@@ -7,7 +7,7 @@
 
             <li class="active">
 
-                 <a href="Inicio">
+                 <a href="inicio">
                      <i class="fa fa-home"></i>
                         <span>Inicio</span>
                  </a>
