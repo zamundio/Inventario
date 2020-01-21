@@ -14,11 +14,10 @@ VIEW `delegados_lineas4g` AS
         `delegados`.`SubArea` AS `SubArea`,
         `delegados`.`Gerente` AS `Gerente`,
         `delegados`.`Linea` AS `Linea`,
+        `lineas_4g`.`sim` AS `SIM`,
         `lineas_4g`.`movil` AS `Movil`,
         `lineas_4g`.`pin` AS `PIN`,
         `lineas_4g`.`puk` AS `PUK`
     FROM
         (`delegados`
-        JOIN `lineas_4g`)
-    WHERE
-        (`delegados`.`Codigo` = `lineas_4g`.`codigo`)
+        LEFT JOIN `lineas_4g` ON ((`delegados`.`Codigo` = `lineas_4g`.`codigo`)))

@@ -35,7 +35,7 @@ MODAL EDITAR USUARIO
                         <div class="form-group">
 
                             <div class="input-group">
-
+                                <input type="hidden" id="codigoDel" name="codigoDel" value="">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
                                 <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" readonly>
@@ -101,20 +101,20 @@ MODAL EDITAR USUARIO
                             <div class="row col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input type="text" class="form-control input-lg CheckTelf" id="editarNumTelf" name="editarNumTelf" pattern=" \d{9}" value=""  data-toggle="tooltip" data-placement="center" title="Telefono" >
+                                    <input type="tel" class="form-control input-lg CheckTelf" id="editarNumTelf" name="editarNumTelf" pattern="[0-9]{9}" value="" data-toggle="tooltip" data-placement="center" title="Telefono">
                                     <input type="hidden" id="telfActual" name="telfActual">
                                 </div>
                             </div>
                             <div class="row col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-wifi"></i></span>
-                                    <input type="text" class="form-control input-lg col-xs-4 CheckSIM" id="editarSIM" name="editarSIM" data-toggle="tooltip" pattern=" \d{12}"   data-placement="right" title="Numero Tarjeta SIM" value="">
+                                    <input type="text" class="form-control input-lg col-xs-4 CheckSIM" id="editarSIM" name="editarSIM" data-toggle="tooltip" pattern="[0-9]{12}" data-placement="right" title="Numero Tarjeta SIM" value="">
                                 </div>
                             </div>
 
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <div class="input-group"></div>
                             <div class="row col"></div>
                         </div>
@@ -134,7 +134,7 @@ MODAL EDITAR USUARIO
                                     <input type="text" class="form-control input-lg" id="editarPUK" name="editarPUK" data-toggle="tooltip" data-placement="left" title="PUK" value="">
                                 </div>
                             </div>
-                        <input type="hidden" id="SIMactual" name="SIMactual">
+                            <input type="hidden" id="SIMactual" name="SIMactual">
                         </div>
 
 
@@ -166,8 +166,8 @@ MODAL EDITAR USUARIO
 
                 <?php
 
-                /*$editarDelegado =new ControladorDelegados;
-                $editarDelegado->ctrEditarDelegadosView();*/
+                $editarDelegado = new ControladorDelegados;
+                $editarDelegado->ctrModifDelegadosView();
 
                 ?>
 

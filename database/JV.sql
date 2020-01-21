@@ -1,0 +1,2 @@
+CREATE VIEW `jv` AS
+SELECT * FROM inventario.delegados WHERE Linea like 'DIRECTOR/A REGIONAL DE VENTAS'or Linea like 'DIRECTOR/A NACIONAL DE VENTAS OTC';

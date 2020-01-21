@@ -1,0 +1,18 @@
+  {
+		  "data": [[
+                    "102",
+                    "MATIAS",
+                    "FERNANDEZ SALAS",
+                    "07-10-1991",
+                    "mfernandez@menarini.es",
+                    "",
+                    "<button type='button' class='btn btn-success btn-xs'>Alta</button>",
+                    "ZONA_23",
+                    "238",
+                    "REDONDO TEJERO",
+                    "L1",
+                     "664966703",
+                    "5005",
+                    "87763132",
+                     "<div class='btn-group'><button class='btn btn-warning btnEditarDelegado'  idDelegado='102' data-toggle='modal' data-target='#modalEditarDelegado'><i class='fa fa-pencil'></i></button><button class='btn btn-danger'><i class='fa fa-times'></i></button></div>"]]
+  }

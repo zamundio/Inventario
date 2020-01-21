@@ -22,12 +22,14 @@ session_start();
     <!--=====================================
   PLUGINS DE CSS
   ======================================-->
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="vistas/bower_components/font-awesome/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="vistas/bower_components/font-awesome/css/font-awesome.min.css">-->
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="vistas/bower_components/Ionicons/css/ionicons.min.css">
@@ -73,6 +75,8 @@ session_start();
     <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <script src="https://kit.fontawesome.com/d8e77c23fc.js" crossorigin="anonymous"></script>
 </head>
 
 <!--=====================================

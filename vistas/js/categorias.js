@@ -157,7 +157,7 @@ $("#nuevaCategoria").change(function() {
 
 
 
-    console.log(Categoria);
+
     $.ajax({
             // En data puedes utilizar un objeto JSON, un array o un query string
             data: {

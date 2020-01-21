@@ -1,5 +1,7 @@
 <?php
-include "Modalesdelegado.php"
+include "Modalesdelegado.php";
+
+$ComboJV = ControladorDelegados::ctrMostrarJV();
 
 ?>
 
@@ -28,20 +30,37 @@ include "Modalesdelegado.php"
         <div class="box">
 
             <div class="box-header with-border">
+                <div class="col align-self-start">
+                    <div class="form-group">
+                        <select class="selectpicker show-menu-arrow" title="Jefatura Ventas" data-style="form-control" id="SelectJV" data-live-search="true">
+                            <option data-tokens="*"> </option>
+                            <?php
+                            foreach ($ComboJV as $key => $value) {
+                                echo '<option data-tokens=' . $value["Primer Apellido"] . ' value=' . $value["Codigo"] . '>' . $value["Primer Apellido"] . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <button class="btn btn-primary" data-container="body" name="submitJV" id="submitJV" type="submit">Buscar</button>
+                        <select class="selectpicker show-menu-arrow" title="Gerente" data-style="form-control" id="SelectGA" data-live-search="true">
+                            <option data-tokens="*"> </option>
 
-                <!-- NO SE AGREGAN NI SE EDITAN LOS DELEGADOS PORQUE SE CARGAN DESDE UMES
-
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
-
-                    Agregar delegado
-
-                </button> -->
+                        </select>
+                        <button class="btn btn-primary" data-container="body" name="submitGA" id="submitGA" type="submit">Buscar</button>
+                    </div>
+                </div>
 
             </div>
 
+
+
+
+
+
+
+
             <div class="box-body">
 
-                <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+                <table class="table table-bordered table-striped dt-responsive TablaDelegados" id="TablaDelegados" width="100%">
 
                     <thead>
 
@@ -55,6 +74,7 @@ include "Modalesdelegado.php"
                             <th>Fecha Baja</th>
                             <th>Estado</th>
                             <th>Zona</th>
+                            <th data-visible="false">codGer</th>
                             <th>Gerente</th>
                             <th>Linea</th>
                             <th>Movil</th>
@@ -71,60 +91,7 @@ include "Modalesdelegado.php"
 
                     </thead>
 
-                    <tbody>
 
-                        <?php
-
-                        $item = null;
-                        $valor = null;
-
-                        $delegados = ControladorDelegados::ctrMostrarDelegadosView($item, $valor);
-
-                        foreach ($delegados as $key => $value) {
-
-                            echo ' <tr>
-                   <td>' . $value["Codigo"] . '</td>
-                  <td>' . $value["Nombre"] . '</td>
-                  <td>' . $value["Primer Apellido"] . '</td>
-                  <td>' . $value["Fecha de Alta"] . '</td>
-                  <td>' . $value["Email"] . '</td>
-                  <td>' . $value["Fecha Baja"] . '</td>';
-                            if (strlen($value["Fecha Baja"]) == 10) {
-                                echo '<td <button type="button" class="btn btn-warning btn-xs">Baja</button></td>';
-                            } else {
-                                echo '<td <button type="button" class="btn btn-success btn-xs">Alta</button></td>';
-                            }
-                            echo '<td>' . $value["SubArea"] . '</td>';
-                            echo '<td>' . $value["NomGer"] . '</td>';
-                            echo '<td>' . $value["Linea"] . '</td>';
-                            echo '<td>' . $value["Movil"] . '</td>';
-                            echo '<td>' . $value["PIN"] . '</td>';
-                            echo '<td>' . $value["PUK"] . '</td>';
-
-                            echo '<td>
-
-                    <div class="btn-group">
-
-                      <button class="btn btn-warning btnEditarDelegado"  idDelegado="' . $value["Codigo"] . '" data-toggle="modal" data-target="#modalEditarDelegado"><i class="fa fa-pencil"></i></button>
-
-                      <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                    </div>
-
-                  </td>';
-
-
-                        }
-
-
-
-
-
-                        echo ' </tr>';
-
-                        ?>
-
-                    </tbody>
 
                 </table>
 

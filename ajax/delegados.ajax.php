@@ -11,7 +11,9 @@ class AjaxDelegados
 	=============================================*/
     public $idDelegado;
     public $NumeroSIM;
-    PUBLIC $NumeroTelf;
+    public $NumeroTelf;
+    public $idJV;
+
     public function ajaxEditarDelegados()
     {
         $tabla = "delegados_ga";
@@ -47,8 +49,24 @@ public function ajaxCheckTelf()
     }
 
 
+    /*=============================================
+LISTA GERENTES
+=============================================*/
+
+    public function ajaxListaGerentes(){
+
+       ;
+        $valor = $this->idJV;
+
+        $respuesta=ControladorDelegados::ctrMostrarGA($valor);
+        echo json_encode($respuesta);
+
+    }
 
 }
+
+
+
 
 
 /*=============================================
@@ -82,4 +100,16 @@ if (isset($_POST["NumeroTelf"])) {
     $CheckTelf = new AjaxDelegados;
     $CheckTelf->NumeroTelf = $_POST["NumeroTelf"];
     $CheckTelf->ajaxCheckTelf();
+}
+
+
+/*=============================================
+CARGAR LISTA DE GERENTES
+=============================================*/
+if (isset($_POST["IdJV"])) {
+
+
+    $ListaGer = new AjaxDelegados;
+    $ListaGer->idJV = $_POST["IdJV"];
+    $ListaGer->ajaxListaGerentes();
 }
