@@ -29,13 +29,15 @@ session_start();
     <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    <!--<link rel="stylesheet" href="vistas/bower_components/font-awesome/css/font-awesome.min.css">-->
+    --
+    <link rel="stylesheet" href="vistas/bower_components/font-awesome/css/all.css">
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="vistas/bower_components/Ionicons/css/ionicons.min.css">
 
     <!-- Theme style -->
     <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="vistas/dist/css/EstilosPropios.css">
 
 
     <!-- AdminLTE Skins -->
@@ -48,14 +50,13 @@ session_start();
     <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
+
     <!--=====================================
-  PLUGINS DE JAVASCRIPT
-  ======================================-->
+        PLUGINS DE JAVASCRIPT======================================
+        -->
 
     <!-- jQuery 3 -->
-    <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap 3.3.7 -->
+    <script src=" vistas/bower_components/jquery/dist/jquery.min.js"> </script> <!-- Bootstrap 3.3.7 -->
     <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- FastClick -->
@@ -70,13 +71,16 @@ session_start();
     <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <!-- SweetAlert 2 -->
     <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
     <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-    <script src="https://kit.fontawesome.com/d8e77c23fc.js" crossorigin="anonymous"></script>
+    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
+    <!--load all styles -->
+    <!--<script src="https://kit.fontawesome.com/d8e77c23fc.js" crossorigin="anonymous"></script>-->
 </head>
 
 <!--=====================================
@@ -150,6 +154,7 @@ CUERPO DOCUMENTO
     <script src="vistas/js/usuarios.js"></script>
     <script src="vistas/js/categorias.js"></script>
     <script src="vistas/js/delegados.js"></script>
+    <script src="vistas/js/inventario.js"></script>
 
 </body>
 

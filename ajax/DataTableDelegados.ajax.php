@@ -14,7 +14,7 @@ class AjaxTablaDelegados{
         $delegados = ControladorDelegados::ctrMostrarDelegadosView($item, $valor);
 
         foreach ($delegados as $key => $value) {
-            $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarDelegado'  idDelegado=" .$value['Codigo']." data-toggle='modal' data-target='#modalEditarDelegado'><i class='fa fa-pencil'></i></button><button class='btn btn-danger'><i class='fa fa-times'></i></button></div>";
+            $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarDelegado'  idDelegado=" .$value['Codigo']." data-toggle='modal' data-target='#modalEditarDelegado'><i class='fa fa-edit'></button></div>";
             if (strlen($value["Fecha Baja"]) == 10) {
                 $CheckAlta= "<button type='button' class='btn btn-warning btn-xs'>Baja</button>";
             } else {

@@ -91,6 +91,14 @@ static public function ctrEditarDelegadosView($item, $valor){
         $respuesta=ModeloDelegados::mdlMostrardelegados($tabla,$item,$valor);
     return $respuesta;
     }
+    static public function ctrMostrarDelegados()
+    {
+        $tabla = "delegados_ga";
+        $item = null;
+        $valor = null;
+        $respuesta = ModeloDelegados::mdlMostrardelegados($tabla, $item, $valor);
+        return $respuesta;
+    }
     static public function ctrMostrarGA($valor)
     {
         $tabla = "ga";

@@ -130,7 +130,7 @@ $("#submitGA").click(function() {
 
 
     }
-    console.log("busqueda", $idGA);
+
     Tabladelegados
 
         .column(8)
@@ -145,7 +145,7 @@ $("#submitGA").click(function() {
 /*=============================================
 EDITAR DELEGADOS
 =============================================*/
-$(".tablas").on("click", ".btnEditarDelegado", function() {
+$(".TablaDelegados").on("click", ".btnEditarDelegado", function() {
 
     var idDelegado = $(this).attr("idDelegado");
 

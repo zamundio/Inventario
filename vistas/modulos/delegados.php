@@ -56,11 +56,9 @@ $ComboJV = ControladorDelegados::ctrMostrarJV();
 
 
 
-
-
             <div class="box-body">
 
-                <table class="table table-bordered table-striped dt-responsive TablaDelegados" id="TablaDelegados" width="100%">
+                <table class="table table-bordered table-striped dt-responsive table-hover TablaDelegados" id="TablaDelegados" width="100%">
 
                     <thead>
 
@@ -102,7 +100,9 @@ $ComboJV = ControladorDelegados::ctrMostrarJV();
     </section>
 
 </div>
-<?php
-/*$borrarUsuario = new ControladorUsuarios();
-$borrarUsuario->ctrBorrarUsuario();*/
-?>
+<script>
+    $(function() {
+
+        $('#TablaDelegados tbody').delegate("tr", "click", rowClick);
+    });
+</script>

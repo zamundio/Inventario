@@ -1,104 +1,146 @@
 <!--=====================================
 MODAL EDITAR USUARIO
 ======================================-->
+<?php
 
-    <div id="modalEditarInventario" class="modal fade" role="dialog">
 
-        <div class="modal-dialog">
+$Combodelegados = ControladorDelegados::ctrMostrarDelegados();
+$ComboLocalizaciones = controladorMaestras::ctrMostrarLocalizacion();
+$ComboEstado = ControladorMaestras::ctrMostrarEstado()
+?>
 
-            <div class="modal-content">
+<div id="modalEditarInventario" class="modal fade" role="dialog">
 
-                <form role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="modal-dialog">
 
-                    <!--=====================================
+        <div class="modal-content">
+
+            <form role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+                <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
-                    <div class="modal-header" style="background:#3c8dbc; color:white">
+                <div class="modal-header" style="background:#3c8dbc; color:white">
 
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                        <h4 class="modal-title">Editar Delegados</h4>
+                    <h4 class="modal-title">Editar Delegados</h4>
 
-                    </div>
+                </div>
 
-                    <!--=====================================
+                <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
-                    <div class="modal-body">
+                <div class="modal-body">
 
-                        <div class="box-body">
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="Modelo">Modelo</label>
-                                <div class="col-md-4">
-                                    <input id="Modelo" name="Modelo" type="text" placeholder="" class="form-control input-md">
+                    <div class="box-body">
 
+
+
+                        <div class="form-group">
+                            <label for="NS" class="control-label col-xs-3">Numero de Serie</label>
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-laptop"></i>
+                                    </div>
+                                    <input id="NS" name="NS" type="text" required="required" class="form-control">
                                 </div>
                             </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">NS</label>
-                                <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" placeholder="Numero de Serie" class="form-control input-md" required="">
-
+                        </div>
+                        <div class="form-group">
+                            <label for="TipoDisp" class="control-label col-xs-3">Tipo Disp.</label>
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fas fa-keyboard"></i>
+                                    </div>
+                                    <input id="TipoDisp" name="TipoDisp" type="text" required="required" class="form-control">
                                 </div>
                             </div>
-
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="selectLoc">Localizacion</label>
-                                <div class="col-md-4">
-                                    <select id="selectLoc" name="selectLoc" class="form-control">
-                                        <option value="1">Option one</option>
-                                        <option value="2">Option two</option>
-                                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Modelo" class="control-label col-xs-3">Modelo</label>
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fas fa-tablet-alt"></i>
+                                    </div>
+                                    <input id="Modelo" name="Modelo" type="text" class="form-control">
                                 </div>
                             </div>
-
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="selectdeleg">Delegado</label>
-                                <div class="col-md-4">
-                                    <select id="selectdeleg" name="selectdeleg" class="form-control">
-                                        <option value="1">Option one</option>
-                                        <option value="2">Option two</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectDel" class="control-label col-xs-3">Asignado a</label>
+                            <div class="col-xs-8">
+                                <select class="selectpicker show-menu-arrow" title="Asignar a..." data-style="form-control" id="selectDel" data-live-search="true">
+                                    <option data-tokens="*"> </option>
+                                    <?php
+                                    foreach ($Combodelegados as $key => $value) {
+                                        echo '<option data-tokens=' . $value["Delegado"] . ' value=' . $value["Codigo"] . '>' . $value["Delegado"] . '</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectLoc" class="control-label col-xs-3">Localización</label>
+                            <div class="col-xs-8">
+                                <select id="selectLoc" name="selectLoc" required="required" class="select form-control">
+                                    <?php
+                                    foreach ($ComboLocalizaciones as $key => $value) {
+                                        echo '<option value=' . $value["Id_Localizaciones"] . '>' . $value["Nombre"] . '</option>';
+                                    }
+                                    ?>
 
-                            <!-- Textarea -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="textObs">Observaciones</label>
-                                <div class="col-md-4">
-                                    <textarea class="form-control" id="textObs" name="textObs"></textarea>
-                                </div>
+                                </select>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectEstado" class="control-label col-xs-3">Estado</label>
+                            <div class="col-xs-8">
+                                <select id="selectEstado" name="selectEstado" required="required" class="select form-control">
+                                    <?php
+                                    foreach ($ComboEstado as $key => $value) {
+                                        echo '<option value=' . $value["Id"] . '>' . $value["Estado"] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="textComentarios" class="control-label col-xs-3">Comentarios</label>
+                            <div class="col-xs-8">
+                                <textarea id="textComentarios" name="textComentarios" cols="40" rows="2" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
 
-                            <!-- Button (Double) -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="buttonSubmit">Actualizar</label>
-                                <div class="col-md-8">
-                                    <button id="buttonSubmit" name="buttonSubmit" class="btn btn-success">OK</button>
-                                    <button id="buttonDiscard" name="buttonDiscard" class="btn btn-danger">Cancelar</button>
-                                </div>
-                            </div>
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+                            <button type="submit" class="btn btn-primary">Modificar usuario</button>
 
                         </div>
+
+
+
+
+
+
                     </div>
-
-                </form>
-
-            </div>
+                </div>
+            </form>
 
         </div>
 
     </div>
 
-    <?php
+</div>
+
+<?php
 
 
 
-    ?>
+?>

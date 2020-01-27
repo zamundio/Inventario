@@ -39,3 +39,34 @@ $(".tablas").DataTable({
     }
 
 });
+
+/*=============================================
+activacion del popover
+=============================================*/
+$(document).popover({
+    selector: '[data-toggle=hover]',
+    html: true,
+    trigger: 'hover'
+
+});
+/*=============================================
+SELECCION DE LA LINEA EN AZUL EN DATATABLE
+=============================================*/
+
+var hlr = 0; // Reference to the currently highlighted row
+
+function rowClick() {
+    if (hlr)
+        $("td:first", hlr).parent().children().each(function() {
+            $(this).removeClass('markrow');
+        });
+    hlr = this;
+    $("td:first", this).parent().children().each(function() {
+        $(this).addClass('markrow');
+    });
+
+    // You can pull the values out of the row here if required
+    var a = $("td:first", this).text();
+    var b = $("td:eq(1)", this).text();
+    // alert("One = " + a + ", Two = " + b);
+}
