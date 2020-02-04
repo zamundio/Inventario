@@ -141,22 +141,34 @@ $("#submitGA").click(function() {
 
     }
 
-
+    regExSearch = '^\\s' + busq + '\\s*$';
 
     TablaInventario
 
-        .column(13)
-        .search(busq)
-        .draw();
+        .column(13).search("^" + busq + "$", true, false)
+
+    .draw();
 
 
 })
 
 
+$("#ResetFiltros").click(function() {
+        $("#SelectJV").val('default');
+        $("#SelectJV").selectpicker("refresh");
+        $("#SelectGA").val('default');
+        $("#SelectGA").selectpicker("refresh");
+        TablaInventario
 
-/*=============================================
-EDITAR INVENTARIO
-=============================================*/
+
+            .draw();
+
+
+
+    })
+    /*=============================================
+    EDITAR INVENTARIO
+    =============================================*/
 $(".TablaInventario").on("click", ".btnEditarInventario", function() {
 
     var NS = $(this).attr("NS");
@@ -183,15 +195,13 @@ $(".TablaInventario").on("click", ".btnEditarInventario", function() {
             $("#TipoDisp").val(respuesta["TipoMaq"]);
             $("#Modelo").val(respuesta["Modelo"]);
             $('.selectpicker').selectpicker('val', respuesta["codigo"]);
+            $('#DelegadoOld').val(respuesta["codigo"]);
             $('#selectLoc').prop('selectedIndex', respuesta["Id_Loc"] - 1);
+            $('#id_LocalizacionOld').val(respuesta["Id_Loc"]);
             $('#selectEstado').prop('selectedIndex', respuesta["Id_Estado"] - 1);
-            /*$("#editarLinea").val(respuesta["Linea"]);
-            $("#editarNumTelf").val(respuesta["Movil"]);
-            $("#editarSIM").val(respuesta["SIM"]);
-            $("#SIMactual").val(respuesta["SIM"]);
-            $("#editarPIN").val(respuesta["PIN"]);
-            $("#editarPUK").val(respuesta["PUK"]);*/
-
+            $('#id_estadoOld').val(respuesta["Id_Estado"]);
+            $('#textComentarios').val(respuesta["Observaciones"]);
+            $('#textComentariosOld').val(respuesta["Observaciones"]);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             if (console && console.log) {

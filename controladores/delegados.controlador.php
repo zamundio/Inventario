@@ -108,7 +108,14 @@ static public function ctrEditarDelegadosView($item, $valor){
         return $respuesta;
     }
 
-
+ static public function ctrMostrarDelegadosTest()
+    {
+        $tabla = "delegados_test";
+        $item = null;
+        $valor = null;
+        $respuesta = ModeloDelegados::mdlMostrardelegados($tabla, $item, $valor);
+        return $respuesta;
+    }
      public function DataTableMostrarDelegados()
     {
     $DatosJson = $datosJson = '{

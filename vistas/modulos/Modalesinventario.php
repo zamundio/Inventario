@@ -6,7 +6,8 @@ MODAL EDITAR USUARIO
 
 $Combodelegados = ControladorDelegados::ctrMostrarDelegados();
 $ComboLocalizaciones = controladorMaestras::ctrMostrarLocalizacion();
-$ComboEstado = ControladorMaestras::ctrMostrarEstado()
+$ComboEstado = ControladorMaestras::ctrMostrarEstado();
+
 ?>
 
 <div id="modalEditarInventario" class="modal fade" role="dialog">
@@ -25,7 +26,7 @@ $ComboEstado = ControladorMaestras::ctrMostrarEstado()
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                    <h4 class="modal-title">Editar Delegados</h4>
+                    <h4 class="modal-title">Editar Inventario</h4>
 
                 </div>
 
@@ -75,7 +76,7 @@ $ComboEstado = ControladorMaestras::ctrMostrarEstado()
                         <div class="form-group">
                             <label for="selectDel" class="control-label col-xs-3">Asignado a</label>
                             <div class="col-xs-8">
-                                <select class="selectpicker show-menu-arrow" title="Asignar a..." data-style="form-control" id="selectDel" data-live-search="true">
+                                <select class="selectpicker show-menu-arrow" title="Asignar a..." data-style="form-control" id="selectDel" name="selectDel" data-live-search="true">
                                     <option data-tokens="*"> </option>
                                     <?php
                                     foreach ($Combodelegados as $key => $value) {
@@ -83,54 +84,62 @@ $ComboEstado = ControladorMaestras::ctrMostrarEstado()
                                     }
                                     ?>
                                 </select>
+                                <input id="DelegadoOld" name="DelegadoOld" type="hidden" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="selectLoc" class="control-label col-xs-3">Localización</label>
                             <div class="col-xs-8">
-                                <select id="selectLoc" name="selectLoc" required="required" class="select form-control">
+                                <select id="selectLoc" name="selectLoc" class="select form-control">
                                     <?php
                                     foreach ($ComboLocalizaciones as $key => $value) {
-                                        echo '<option value=' . $value["Id_Localizaciones"] . '>' . $value["Nombre"] . '</option>';
+                                        echo '<option value=' . $value["ID_Localizaciones"] . '>' . $value["Nombre"] . '</option>';
                                     }
                                     ?>
 
                                 </select>
                             </div>
+                            <input id="id_LocalizacionOld" name="id_LocalizacionOld" type="hidden" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="selectEstado" class="control-label col-xs-3">Estado</label>
                             <div class="col-xs-8">
-                                <select id="selectEstado" name="selectEstado" required="required" class="select form-control">
+                                <select id="selectEstado" name="selectEstado" class="select form-control">
                                     <?php
                                     foreach ($ComboEstado as $key => $value) {
-                                        echo '<option value=' . $value["Id"] . '>' . $value["Estado"] . '</option>';
+                                        echo '<option value=' . $value["id"] . '>' . $value["Estado"] . '</option>';
                                     }
                                     ?>
                                 </select>
                             </div>
+                            <input id="id_estadoOld" name="id_estadoOld" type="hidden" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="textComentarios" class="control-label col-xs-3">Comentarios</label>
                             <div class="col-xs-8">
-                                <textarea id="textComentarios" name="textComentarios" cols="40" rows="2" class="form-control"></textarea>
+                                <textarea id="textComentarios" name="textComentarios" value="" cols="40" rows="2" class="form-control"></textarea>
                             </div>
+                            <input id="textComentariosOld" name="textComentariosOld" type="hidden" class="form-control">
                         </div>
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-                            <button type="submit" class="btn btn-primary">Modificar usuario</button>
+                            <button type="submit" class="btn btn-primary">Modificar Inventario</button>
 
                         </div>
 
 
-
-
-
-
                     </div>
                 </div>
+
+                <?php
+
+                $editarInventario = new ControladorInventario;
+                $editarInventario->ctrEditarInventario();
+
+                ?>
+
             </form>
 
         </div>

@@ -50,6 +50,7 @@
 
                          </select>
                          <button class="btn btn-primary" data-container="body" name="submitGA" id="submitGA" type="submit">Buscar</button>
+                         <button class="btn btn-primary" data-container="body" name="ResetFiltros" id="ResetFiltros" type="button">Resetear</button>
                      </div>
                  </div>
 

@@ -51,5 +51,81 @@ class controladorInventario{
 
         return  $DatosJson;
     }
+
+
+    static public function ctrEditarInventario(){
+            if (isset($_POST["selectDel"])|| isset($_POST["selectLoc"]) || isset($_POST["selectEstado"])){
+
+            if(isset($_POST["selectDel"])){
+                $delegado= $_POST["selectDel"];
+             }else{
+
+                $delegado=null;
+
+             }
+
+
+            $tabla="inventario";
+                $datos=null;
+            $datos = array(
+                "ns" => $_POST["NS"],
+                "Delegado"=> $delegado,
+                "DelegadoOld" => $_POST["DelegadoOld"],
+                "Localizacion" => $_POST["selectLoc"],
+                "Localizacionold" => $_POST["id_LocalizacionOld"],
+                "Estado" => $_POST["selectEstado"],
+                "EstadoOld" => $_POST["id_estadoOld"],
+                "Observaciones" => $_POST["textComentarios"],
+                "ObservacionesOld" => $_POST["textComentariosOld"]
+            );
+
+
+            $respuesta = ModeloInventario::mdlActualizarInventario($tabla, $datos);
+            ModeloInventario::mdlActualizarLog_Movimientos( $datos);
+            if ($respuesta == "ok") {
+
+                echo '<script>
+
+					swal({
+						  type: "success",
+						  title: "Los datos han sido editados correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									;
+
+									}
+								})
+
+					</script>';
+            } else {
+
+                echo '<script>
+
+					swal({
+						  type: "error",
+						  title: "¡Ha ocurrido un error!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							;
+
+							}
+						})
+
+			  	</script>';
+            }
+            }
+
+
 }
 
+
+
+
+
+}

@@ -50,6 +50,7 @@ session_start();
     <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
+    <link rel="stylesheet" href="vistas/plugins/jstree/dist/themes/default/style.min.css">
 
     <!--=====================================
         PLUGINS DE JAVASCRIPT======================================
@@ -78,9 +79,10 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
+    <script defer src="vistas/bower_components/font-awesome/js/all.js"></script>
     <!--load all styles -->
-    <!--<script src="https://kit.fontawesome.com/d8e77c23fc.js" crossorigin="anonymous"></script>-->
+
+    <script src="vistas/plugins/jstree/dist/jstree.min.js"></script>
 </head>
 
 <!--=====================================
@@ -155,6 +157,7 @@ CUERPO DOCUMENTO
     <script src="vistas/js/categorias.js"></script>
     <script src="vistas/js/delegados.js"></script>
     <script src="vistas/js/inventario.js"></script>
+    <script src="vistas/js/jstree.js"></script>
 
 </body>
 
