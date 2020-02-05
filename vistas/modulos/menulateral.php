@@ -1,52 +1,59 @@
 <!-- Control Sidebar -->
- <aside class="main-sidebar">
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-    <!-- Create the tabs -->
-         <ul class="sidebar-menu">
+        <!-- Create the tabs -->
+        <ul class="sidebar-menu">
 
             <li class="active">
 
-                 <a href="inicio">
-                     <i class="fa fa-home"></i>
-                        <span>Inicio</span>
-                 </a>
+                <a href="inicio">
+                    <i class="fa fa-home"></i>
+                    <span>Inicio</span>
+                </a>
 
             </li>
-
-
-             <li>
-                <a href="Usuarios">
-                   <i class="fa fa-user"></i>
-                        <span>Usuarios</span>
+            <li>
+                <a href="Estructura">
+                    <i class="fa fa-briefcase"></i>
+                    <span>Estructura Red</span>
                 </a>
 
             </li>
 
-           <li>
 
-            <a href="categorias">
-                <i class="fa fa-th"></i>
+            <li>
+                <a href="Usuarios">
+                    <i class="fa fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="categorias">
+                    <i class="fa fa-th"></i>
                     <span>Categorias</span>
-            </a>
+                </a>
 
             </li>
 
             <li>
 
-            <a href="inventario">
-              <i class="fa fa-wrench"></i>
+                <a href="inventario">
+                    <i class="fa fa-wrench"></i>
                     <span>Inventario</span>
-            </a>
+                </a>
 
             </li>
 
             <li>
 
-            <a href="delegados">
-                <i class="fa fa-users"></i>
+                <a href="delegados">
+                    <i class="fa fa-users"></i>
                     <span>Delegados</span>
-            </a>
+                </a>
 
             </li>
         </ul>

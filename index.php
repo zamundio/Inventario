@@ -17,6 +17,3 @@ $plantilla->ctrPlantilla();:*/
 include "vistas/plantilla.php";
 
 
-
-
-

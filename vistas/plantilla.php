@@ -29,7 +29,7 @@ session_start();
     <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    --
+
     <link rel="stylesheet" href="vistas/bower_components/font-awesome/css/all.css">
 
     <!-- Ionicons -->
@@ -57,7 +57,7 @@ session_start();
         -->
 
     <!-- jQuery 3 -->
-    <script src=" vistas/bower_components/jquery/dist/jquery.min.js"> </script> <!-- Bootstrap 3.3.7 -->
+    <script src=" vistas/bower_components/jquery/dist/jquery.min.js"> </script>
     <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- FastClick -->
@@ -77,8 +77,8 @@ session_start();
     <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
     <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"> </script>
     <script defer src="vistas/bower_components/font-awesome/js/all.js"></script>
     <!--load all styles -->
 
@@ -121,7 +121,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "categorias" ||
                 $_GET["ruta"] == "delegados" ||
                 $_GET["ruta"] == "inventario" ||
-                $_GET["ruta"] == "ventas" ||
+                $_GET["ruta"] == "Estructura" ||
                 $_GET["ruta"] == "crear-venta" ||
                 $_GET["ruta"] == "reportes" ||
                 $_GET["ruta"] == "Salir"
