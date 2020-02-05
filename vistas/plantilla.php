@@ -142,8 +142,8 @@ CUERPO DOCUMENTO
     =============================================*/
 
         include "modulos/footer.php";
-
         echo '</div>';
+
     } else {
 
         include "modulos/login.php";
