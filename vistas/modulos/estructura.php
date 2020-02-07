@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <div class="content-wrapper">
 
     <section class="content-header">
@@ -21,16 +27,15 @@
     <!-- Main content -->
     <section class="content">
 
-        <!-- Default box -->
+        <!-- PANEL IZQUIERDO -->
 
 
         <div class="col-lg-4">
             <!-- general form elements -->
             <div class="box box-primary ">
 
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
+                <form role="form" method="post" id=" formtree">
+
                     <div class="box-body">
                         <div class="input-group col-xs-8">
                             <span class="input-group-addon" id="search-addon"><span class="fa fa-th-list"></span></span>
@@ -47,28 +52,23 @@
 
                 </form>
             </div>
-            <!-- /.box-body -->
 
 
-
-            <!-- /.box-body -->
-
-            <!-- /.box-footer-->
         </div>
-        <!-- /.box -->
+        <!--PANEL DERECHO -->
         <div class="col-lg-8">
-            <!-- general form elements -->
+
             <div class="box box-primary ">
 
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form">
+
+                <form role="form" method="post" id=" formdata">
                     <div class="box-body">
 
                         <div class="form-row">
                             <div class="form-group col-md-1">
                                 <label for="Codigo">Codigo</label>
                                 <input type="text" class="form-control" id="Codigo" placeholder="">
+                                <input type="hidden" class="form-control" id="CodigoSelec">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="Nombre">Nombre</label>
@@ -102,37 +102,97 @@
                                 <input type="text" class="form-control" id="telefono">
                             </div>
 
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">Dirección</label>
-                                <input type="text" class="form-control" id="inputCity">
+                            <div class="form-group col-md-7">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputState">State</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
-                                </select>
+                            <div class="form-group col-md-3">
+                                <label for="poblacion">Poblacion</label>
+                                <input type="text" class="form-control" id="poblacion">
+                            </div>
+                            <div class="form-group col-md-1">
+                                <label for="cp">CP</label>
+                                <input type="text" class="form-control" id="cp">
                             </div>
                             <div class="form-group col-md-2">
-                                <label for="inputZip">Zip</label>
-                                <input type="text" class="form-control" id="inputZip">
+                                <label for="provincia">Provincia</label>
+                                <input type="text" class="form-control" id="provincia">
+                            </div>
+                            <div class="form-group col-xs-2">
+                                <label for="telefonoemp">Telefono Empresa</label>
+                                <input type="text" class="form-control" id="telefonoemp">
+                            </div>
+                            <div class="form-group col-md-1">
+                                <label for="abrev">Abreviado</label>
+                                <input type="text" class="form-control" id="abrev">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <input id="email" name="email" type="text" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="chkuser">Checkpoint User</label>
+                                <input type="text" class="form-control" id="chkuser">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="chkpwd">Checkpoint Password</label>
+                                <input type="text" class="form-control" id="chkpwd">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="sim">Tarjeta Secundaria</label>
+                                <input type="text" class="form-control" id="sim">
                             </div>
 
-                        </div>
-                        <!-- /.box-body -->
+                            <div class="form-group col-md-1">
+                                <label for="sim">PIN</label>
+                                <input type="text" class="form-control" id="pin">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="puk">PUK</label>
+                                <input type="text" class="form-control" id="puk">
+                            </div>
+                            <!-- /.box-body -->
+                            <table class="table  table-striped table-bordered dt-responsive table-hover TablaLinkedItems" id="TablaLinkedItems" width="100%">
 
+                                <thead>
+
+                                    <tr>
+                                        <th style="width:8px">Observ</th>
+                                        <th style="width:8px">NS</th>
+                                        <th>Modelo</th>
+                                        <th>Tipo </th>
+                                        <th>Localizacion</th>
+                                        <th>Estado</th>
+
+                                    </tr>
+
+                                </thead>
+
+                            </table>
 
                 </form>
+
+
+                <!-- /.box-body -->
+
+
+
+                <!-- /.box-body -->
+
+                <!-- /.box-footer-->
             </div>
-            <!-- /.box-body -->
-
-
-
-            <!-- /.box-body -->
-
-            <!-- /.box-footer-->
-        </div>
     </section>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+    $(function() {
+
+        $('#TablaLinkedItems tbody').delegate("tr", "click", rowClick);
+    });
+</script>

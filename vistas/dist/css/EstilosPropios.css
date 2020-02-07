@@ -152,3 +152,7 @@ campo:valid {
 .markrow {
     background-color: #a9cbff !important;
 }
+
+#formdata {
+    display: none;
+}

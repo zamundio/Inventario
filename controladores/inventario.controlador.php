@@ -7,7 +7,7 @@ class controladorInventario{
         $tabla = "inventario_view";
 
 
-        $respuesta = ModeloInventario::mdlMostrarInventario($tabla, $item, $valor);
+        $respuesta = ModeloInventario::mdlMostrarInventarioLinked($tabla, $item, $valor);
 
         return $respuesta;
 
