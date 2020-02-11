@@ -9,8 +9,8 @@ class AjaxTablaInventarioEstructura
 
     public function DataTableMostrarInventario()
     {
-        ;
-       $DatosJson = '[ ';
+
+      $DatosJson = '[ ';
         $item = "codigo";
        if (ISSET($_POST["CurrentNode"])){
         $valor = $_POST["CurrentNode"][0];
@@ -36,13 +36,10 @@ class AjaxTablaInventarioEstructura
             $DatosJson .= '{
                     "Observ":"' . $tooltip . '",
                     "NS":"' . $value["NS"] . '",
-                    "Id_Mod":"' . $value["Id_Mod"] . '",
                     "Modelo":"' . $value["Modelo"] . '",
                     "Tipo":"' . $value["TipoMaq"] . '",
-                    "Id_Loc":"' . $value["Id_Loc"] . '",
-                    "Localización":"' . $value["Nombre"] . '",
-                    "Id_Estado":"' . $value["Id_Estado"] . '",
-                    "Estado Equipo":"' . $value["Estado"] . '"},';
+                     "Localizacion":"' . $value["Nombre"] . '",
+                    "Estado":"' . $value["Estado"] . '"},';
         }
 
         $DatosJson = substr($DatosJson, 0, -1);

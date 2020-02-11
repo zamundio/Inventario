@@ -76,10 +76,11 @@ $("#TablaLinkedItems").DataTable({
 //Funcion que se lanza al seleccionar un nodo
 $("#tree-container").on("click.jstree", function(e, data) {
     $CurrentNode = $("#tree-container").jstree("get_selected");
-
+    console.log($CurrentNode[0]);
+    console.log($CurrentNode);
     CurrentNodetoPHP($CurrentNode);
 
-    if ($CurrentNode != "1" && $CurrentNode != "[]") {
+    if ($CurrentNode[0] != 1 && $CurrentNode[0] != "" && $CurrentNode[0] != 3010 && $CurrentNode[0] != 892 && $CurrentNode[0] != 1907 && $CurrentNode[0] != 3384 && $CurrentNode[0] != 1826) {
         $("#formdata").css('display', 'block');
     } else {
         $("#formdata").css('display', 'none');
@@ -128,6 +129,8 @@ $(document).popover({
 async function CurrentNodetoPHP($node) {
 
     var v = "";
+
+
     $.ajax({
             url: "ajax/DataTableLinkedItems.ajax.php",
             type: "POST",
@@ -137,29 +140,12 @@ async function CurrentNodetoPHP($node) {
 
         })
         .done(function(data, textStatus, jqXHR) {
-            console.log(data);
-            $("#TablaLinkedItems").DataTable().clear().draw();
-            $("#TablaLinkedItems").DataTable().rows.add(
-                [{
-                    "Observ": "fdgdfg",
-                    "NS": "FVFY11JJJK77",
-                    "Modelo": "MacBook Air (Retina, 13-inch, 2018)",
-                    "Tipo": "Tablet",
-                    "Localizacion": "Colaborador",
-                    "Estado": "Asignado"
-                }, {
-                    "Observ": "fdgfdg",
-                    "NS": "TH7AS490KV",
+            datajson = JSON.parse(data);
 
-                    "Modelo": "Hp Officejet 5230",
-                    "Tipo": "Impresora",
-
-                    "Localizacion": "Colaborador",
-
-                    "Estado": "Asignado"
-                }]
-            ).draw();
-
+            if (data.length > 4) {
+                $("#TablaLinkedItems").DataTable().clear().draw();
+                $("#TablaLinkedItems").DataTable().rows.add(datajson).draw();
+            }
 
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
