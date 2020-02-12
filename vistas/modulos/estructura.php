@@ -1,5 +1,7 @@
 <?php
 
+include "Modalesestructura.php";
+
 
 
 ?>
@@ -114,7 +116,7 @@
                                 <label for="cp">CP</label>
                                 <input type="text" class="form-control" id="cp">
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-3">
                                 <label for="provincia">Provincia</label>
                                 <input type="text" class="form-control" id="provincia">
                             </div>
@@ -168,6 +170,7 @@
                                         <th>Tipo </th>
                                         <th>Localizacion</th>
                                         <th>Estado</th>
+                                        <th>Acciones</th>
 
                                     </tr>
 

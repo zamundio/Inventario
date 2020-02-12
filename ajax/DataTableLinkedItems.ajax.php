@@ -3,7 +3,8 @@
 
 require_once "../controladores/inventario.controlador.php";
 require_once "../modelos/inventario.modelo.php";
-
+require_once "../controladores/delegados.controlador.php";
+require_once "../modelos/delegados.modelo.php";
 class AjaxTablaInventarioEstructura
 {
 
@@ -12,7 +13,7 @@ class AjaxTablaInventarioEstructura
 
       $DatosJson = '[ ';
         $item = "codigo";
-       if (ISSET($_POST["CurrentNode"])){
+
         $valor = $_POST["CurrentNode"][0];
 
 
@@ -21,7 +22,7 @@ class AjaxTablaInventarioEstructura
 
         $botones = null;
         foreach ($inventario as $key => $value) {
-            $botones = "<button class='btn btn-warning btnEditarInventario'  NS=" . $value['NS'] . " data-toggle='modal' data-target='#modalEditarInventario'><i class='fa fa-edit'></i></button>";
+            $botones = "<button type='button' class='btn btn-warning btnEditarEstructura'  NS=" . $value['NS'] . " data-toggle='modal' data-target='#modalEditarEstructura'><i class='fa fa-edit'></i></button>";
 
 
 
@@ -39,7 +40,8 @@ class AjaxTablaInventarioEstructura
                     "Modelo":"' . $value["Modelo"] . '",
                     "Tipo":"' . $value["TipoMaq"] . '",
                      "Localizacion":"' . $value["Nombre"] . '",
-                    "Estado":"' . $value["Estado"] . '"},';
+                    "Estado":"' . $value["Estado"] . '",
+                     "Acciones":"'.$botones.'"},';
         }
 
         $DatosJson = substr($DatosJson, 0, -1);
@@ -47,9 +49,25 @@ class AjaxTablaInventarioEstructura
         $DatosJson .=   '] ';
 
         echo $DatosJson;
-    }
+
     }
 }
-
+if (isset($_POST["CurrentNode"])) {
 $activarInventarioLinked = new AjaxTablaInventarioEstructura();
 $activarInventarioLinked->DataTableMostrarInventario();
+}
+
+if (isset($_POST["COD"])) {
+
+    $tabla = 'delegados_ficha';
+    $item = 'Codigo';
+    $valor = $_POST["COD"];
+
+
+
+
+    $respuesta = ModeloDelegados::mdlMostrardelegados($tabla, $item, $valor);
+
+
+    echo json_encode($respuesta);
+}
