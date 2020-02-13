@@ -134,6 +134,10 @@ $("#tree-container").on("click.jstree", function(e, data) {
             $('#sim').val(respuesta["SIM"]);
             $('#pin').val(respuesta["PIN"]);
             $('#puk').val(respuesta["PUK"]);
+            local = respuesta["Direccion"] + " " + respuesta["Poblacion"] + " " + respuesta["CP"] + ", " + respuesta["Provincia"];
+
+            geocode(local, respuesta["Direccion"] + " " + respuesta["Poblacion"]);
+
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             if (console && console.log) {

@@ -1,14 +1,78 @@
 <!--=====================================
-MODAL EDITAR USUARIO
-======================================-->
-<?php
+        CABEZA DEL MODAL GOOGLE MAPS
+        ======================================-->
+<div id="ModalMaps" class="modal fade"  role="dialog">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <form role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+                <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+                <div class="modal-header" style="background:#3c8dbc; color:white">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    <h4 class="modal-title">Geolocalización</h4>
+
+                </div>
+
+                <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+                <div class="modal-body">
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-12 modal_body_content">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 modal_body_map">
+                                <div id="myMap" style="position:relative;width:500px;height:600px;"></div>
+                                <!-- Replace the value of the key parameter with your own API key. -->
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 modal_body_end">
+
+                            </div>
+                        </div>
+                        <!-- Placed at the end of the document so the pages load faster -->
 
 
-$Combodelegados = ControladorDelegados::ctrMostrarDelegados();
-$ComboLocalizaciones = controladorMaestras::ctrMostrarLocalizacion();
-$ComboEstado = ControladorMaestras::ctrMostrarEstado();
+                    </div>
 
-?>
+                </div>
+        </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="modalEditarEstructura" class="modal fade" role="dialog">
 
@@ -148,6 +212,7 @@ $ComboEstado = ControladorMaestras::ctrMostrarEstado();
     </div>
 
 </div>
+<!-- Placed at the end of the document so the pages load faster -->
 
 <?php
 

@@ -22,7 +22,7 @@ session_start();
     <!--=====================================
   PLUGINS DE CSS
   ======================================-->
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https:/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
 
     <!-- Bootstrap 3.3.7 -->
@@ -143,7 +143,6 @@ CUERPO DOCUMENTO
 
         include "modulos/footer.php";
         echo '</div>';
-
     } else {
 
         include "modulos/login.php";
@@ -158,6 +157,10 @@ CUERPO DOCUMENTO
     <script src="vistas/js/delegados.js"></script>
     <script src="vistas/js/inventario.js"></script>
     <script src="vistas/js/jstree.js"></script>
+
+
+
+    <script src="vistas/js/maps.js"></script>
 
 </body>
 

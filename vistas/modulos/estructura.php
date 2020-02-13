@@ -2,8 +2,6 @@
 
 include "Modalesestructura.php";
 
-
-
 ?>
 
 <div class="content-wrapper">
@@ -100,14 +98,21 @@ include "Modalesestructura.php";
                                 <input type="text" class="form-control" id="dni">
                             </div>
                             <div class="form-group col-md-2">
+
                                 <label for="telefono">Teléfono</label>
                                 <input type="text" class="form-control" id="telefono">
                             </div>
 
-                            <div class="form-group col-md-7">
+                            <div class="form-group col-lg-6">
                                 <label for="direccion">Dirección</label>
-                                <input type="text" class="form-control" id="direccion">
-                            </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="direccion">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" id="botonmaps" type="button" data-toggle="modal" data-target="#ModalMaps" onClick="GetMap()" data-lat='41.450142' data-lng='2.247420'> <i class="fas fa-map-marker-alt" aria-hidden="true"></i></button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+
                             <div class="form-group col-md-3">
                                 <label for="poblacion">Poblacion</label>
                                 <input type="text" class="form-control" id="poblacion">
@@ -193,9 +198,10 @@ include "Modalesestructura.php";
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=waa0OVAIKFoFTxQhJmmz~LgnlIZ7aFnqZdryWOk-U1Q~An1_BTTeFUmx127gm-QIdAEfn_Oza3pCpPlAfrfje_aCqlKn96CCvK4R7SP7VveN' async defer></script>
 <script>
     $(function() {
 
-        $('#TablaLinkedItems tbody').delegate("tr", "click", rowClick);
+        $(' #TablaLinkedItems tbody').delegate("tr", "click", rowClick);
     });
 </script>
