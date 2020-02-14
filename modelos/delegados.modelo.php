@@ -73,7 +73,7 @@ class ModeloDelegados{
         /*COMPROBAREMOS PRIMERO QUE EXISTE UN REGISTRO EN LA TABLA DE LINEAS_4G PARA PODER ACTUALIZARLO
         SI NO, HAREMOS UN INSERT EN VEZ DE UN UPDATE*/
 
-        $CodExist = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE codigo = :codigo");
+        $CodExist = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE Codigo = :codigo");
         $CodExist->bindParam(":codigo", $datos["codigoDel"], PDO::PARAM_STR);
 
 
@@ -84,10 +84,10 @@ class ModeloDelegados{
 
         if ($CodExist->fetch()==""){
 
-            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, movil, sim, pin, puk) VALUES (:codigoDel, :Movil, :SIM, :PIN, :PUK)");
+            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Codigo, MOVIL, SIM_TS, PIN_TS, PUK_TS) VALUES (:codigoDel, :Movil, :SIM, :PIN, :PUK)");
             }else{
 
-            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET sim = :SIM, movil = :Movil, pin = :PIN, puk = :PUK WHERE codigo = :codigoDel");
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET SIM_TS = :SIM, MOVIL = :Movil, PIN_TS = :PIN, PUK_TS = :PUK WHERE Codigo = :codigoDel");
 
            }
 

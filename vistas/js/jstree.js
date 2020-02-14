@@ -110,7 +110,7 @@ $("#tree-container").on("click.jstree", function(e, data) {
             // Formato de datos que se espera en la respuesta
             dataType: "json",
             // URL a la que se enviará la solicitud Ajax
-            url: "ajax/DataTableLinkedItems.ajax.php",
+            url: "ajax/DataTableEstructurared.ajax.php",
         })
         .done(function(respuesta, textStatus, jqXHR) {
             console.log(respuesta);
@@ -126,7 +126,7 @@ $("#tree-container").on("click.jstree", function(e, data) {
             $('#poblacion').val(respuesta["Poblacion"]);
             $('#cp').val(respuesta["CP"]);
             $('#provincia').val(respuesta["Provincia"]);
-            $('#telefonoemp').val(respuesta["Telf"]);
+            $('#telefonoemp').val(respuesta["Movil"]);
             $('#abrev').val(respuesta["EXTENSION"]);
             $('#email').val(respuesta["Email"]);
             $('#chkuser').val(respuesta["ChkUser"]);
@@ -135,7 +135,9 @@ $("#tree-container").on("click.jstree", function(e, data) {
             $('#pin').val(respuesta["PIN"]);
             $('#puk').val(respuesta["PUK"]);
             local = respuesta["Direccion"] + " " + respuesta["Poblacion"] + " " + respuesta["CP"] + ", " + respuesta["Provincia"];
-
+            //primero se  Geolocaliza la latitud y la longitud de la direccion, para posteriormente, cuando se
+            //pulsa sobre el botón del mapa, generar el mapa.
+            // Si se hace a la vez, al ser una respuesta asincrona, carga el mapa sin lat ni long
             geocode(local, respuesta["Direccion"] + " " + respuesta["Poblacion"]);
 
         })
@@ -205,7 +207,7 @@ async function CurrentNodetoPHP($node) {
 
 
     $.ajax({
-            url: "ajax/DataTableLinkedItems.ajax.php",
+            url: "ajax/DataTableEstructurared.ajax.php",
             type: "POST",
             data: {
                 'CurrentNode': $node

@@ -36,7 +36,7 @@
      var geocodeRequest = "http://dev.virtualearth.net/REST/v1/Locations?query=" + encodeURIComponent(query) + "&jsonp=GeocodeCallback&key=" + BingMapsKey;
 
      CallRestService(geocodeRequest, GeocodeCallback);
-     c
+
 
  }
 

@@ -21,7 +21,14 @@
 
             </li>
 
+            <li>
 
+                <a href="inventario">
+                    <i class="fa fa-wrench"></i>
+                    <span>Inventario</span>
+                </a>
+
+            </li>
             <li>
                 <a href="Usuarios">
                     <i class="fa fa-user"></i>
@@ -39,14 +46,7 @@
 
             </li>
 
-            <li>
 
-                <a href="inventario">
-                    <i class="fa fa-wrench"></i>
-                    <span>Inventario</span>
-                </a>
-
-            </li>
 
             <li>
 
@@ -56,6 +56,17 @@
                 </a>
 
             </li>
+            <li>
+
+                <a href="log">
+                    <i class="fa fa-clipboard-list"></i>
+                    <span>Log Movimientos</span>
+                </a>
+
+            </li>
+
+
+
         </ul>
 
 

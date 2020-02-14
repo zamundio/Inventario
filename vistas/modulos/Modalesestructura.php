@@ -1,7 +1,18 @@
+<?php
+
+
+$Combodelegados = ControladorDelegados::ctrMostrarDelegados();
+$ComboLocalizaciones = controladorMaestras::ctrMostrarLocalizacion();
+$ComboEstado = ControladorMaestras::ctrMostrarEstado();
+
+?>
+
+
+
 <!--=====================================
         CABEZA DEL MODAL GOOGLE MAPS
         ======================================-->
-<div id="ModalMaps" class="modal fade"  role="dialog">
+<div id="ModalMaps" class="modal fade" role="dialog">
 
     <div class="modal-dialog">
 

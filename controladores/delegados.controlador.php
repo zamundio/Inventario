@@ -14,7 +14,7 @@ static public function ctrMostrarDelegadosView($item, $valor){
 
 static public function ctrEditarDelegadosView($item, $valor){
 
-		$tabla = "delegados_GA";
+		$tabla = "telefonia";
 
 
 		$respuesta = ModeloDelegados::MdlMostrarDelegados($tabla, $item, $valor);
@@ -31,7 +31,7 @@ static public function ctrEditarDelegadosView($item, $valor){
             $NumSIM= $_POST["editarSIM"];
             $NumPIN = $_POST["editarPIN"];
             $NumPUK = $_POST["editarPUK"];
-            $tabla = "lineas_4g";
+            $tabla = "telefonia";
 
 
             $datos=array("codigoDel"=> $CodigoDel,

@@ -108,7 +108,7 @@ MODAL EDITAR USUARIO
                             <div class="row col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-wifi"></i></span>
-                                    <input type="text" class="form-control input-lg col-xs-4 CheckSIM" id="editarSIM" name="editarSIM" data-toggle="tooltip" pattern="[0-9]{12}" data-placement="right" title="Numero Tarjeta SIM" value="">
+                                    <input type="text" class="form-control input-lg col-xs-4 CheckSIM" id="editarSIM" name="editarSIM" data-toggle="tooltip"  data-placement="right" title="Numero Tarjeta SIM" value="">
                                 </div>
                             </div>
 
