@@ -118,6 +118,8 @@ $("#tree-container").on("click.jstree", function(e, data) {
             $("#Codigo").val(respuesta["Codigo"]);
             $("#Nombre").val(respuesta["Nombre"]);
             $("#Apellidos").val(respuesta["Primer Apellido"]);
+            $("#nombre").val(respuesta["Nombre"]);
+            $("#apellidos").val(respuesta["Primer Apellido"]);
             $("#fechaalta").val(respuesta["Fecha de Alta"]);
             $('#linea').val(respuesta["Linea"]);
             $('#dni').val(respuesta["DNI"]);
@@ -128,6 +130,7 @@ $("#tree-container").on("click.jstree", function(e, data) {
             $('#provincia').val(respuesta["Provincia"]);
             $('#telefonoemp').val(respuesta["Movil"]);
             $('#abrev').val(respuesta["EXTENSION"]);
+            $('#Email').val(respuesta["Email"]);
             $('#email').val(respuesta["Email"]);
             $('#chkuser').val(respuesta["ChkUser"]);
             $('#chkpwd').val(respuesta["ChkPwd"]);

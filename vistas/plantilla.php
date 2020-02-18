@@ -123,7 +123,8 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "inventario" ||
                 $_GET["ruta"] == "Estructura" ||
                 $_GET["ruta"] == "log" ||
-                $_GET["ruta"] == "reportes" ||
+                $_GET["ruta"] == "Mail" ||
+                $_GET["ruta"] == "mail.php" ||
                 $_GET["ruta"] == "Salir"
             ) {
 
@@ -142,6 +143,7 @@ CUERPO DOCUMENTO
     =============================================*/
 
         include "modulos/footer.php";
+
         echo '</div>';
     } else {
 

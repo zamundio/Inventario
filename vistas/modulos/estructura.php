@@ -2,6 +2,10 @@
 
 include "Modalesestructura.php";
 
+
+include "Modalmail.php";
+
+
 ?>
 
 <div class="content-wrapper">
@@ -108,7 +112,7 @@ include "Modalesestructura.php";
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="direccion">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" id="botonmaps" type="button" data-toggle="modal" data-target="#ModalMaps" onClick="GetMap()" data-lat='41.450142' data-lng='2.247420'> <i class="fas fa-map-marker-alt" aria-hidden="true"></i></button>
+                                        <button class="btn btn-default" id="botonmaps" type="button" data-toggle="modal" data-target="#ModalMaps" onClick="GetMap()"> <i class="fas fa-map-marker-alt" aria-hidden="true"></i></button>
                                     </span>
                                 </div><!-- /input-group -->
                             </div><!-- /.col-lg-6 -->
@@ -133,55 +137,56 @@ include "Modalesestructura.php";
                                 <label for="abrev">Abreviado</label>
                                 <input type="text" class="form-control" id="abrev">
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="email">Email</label>
+                            <div class="form-group col-lg-3">
+                                <label for="direccion">Email</label>
                                 <div class="input-group">
-                                    <input id="email" name="email" type="text" class="form-control">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="chkuser">Checkpoint User</label>
-                                <input type="text" class="form-control" id="chkuser">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="chkpwd">Checkpoint Password</label>
-                                <input type="text" class="form-control" id="chkpwd">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="sim">Tarjeta Secundaria</label>
-                                <input type="text" class="form-control" id="sim">
-                            </div>
+                                    <input type="text" class="form-control" id="Email">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" id="botonmail" type="button" data-toggle="modal" data-target="#modalMail"> <i class="fas fa-envelope" aria-hidden="true"></i></button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="chkuser">Checkpoint User</label>
+                            <input type="text" class="form-control" id="chkuser">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="chkpwd">Checkpoint Password</label>
+                            <input type="text" class="form-control" id="chkpwd">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="sim">Tarjeta Secundaria</label>
+                            <input type="text" class="form-control" id="sim">
+                        </div>
 
-                            <div class="form-group col-md-1">
-                                <label for="sim">PIN</label>
-                                <input type="text" class="form-control" id="pin">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="puk">PUK</label>
-                                <input type="text" class="form-control" id="puk">
-                            </div>
-                            <!-- /.box-body -->
-                            <table class="table  table-striped table-bordered dt-responsive table-hover TablaLinkedItems" id="TablaLinkedItems" width="100%">
+                        <div class="form-group col-md-1">
+                            <label for="sim">PIN</label>
+                            <input type="text" class="form-control" id="pin">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="puk">PUK</label>
+                            <input type="text" class="form-control" id="puk">
+                        </div>
+                        <!-- /.box-body -->
+                        <table class="table  table-striped table-bordered dt-responsive table-hover TablaLinkedItems" id="TablaLinkedItems" width="100%">
 
-                                <thead>
+                            <thead>
 
-                                    <tr>
-                                        <th style="width:8px">Observ</th>
-                                        <th style="width:8px">NS</th>
-                                        <th>Modelo</th>
-                                        <th>Tipo </th>
-                                        <th>Localizacion</th>
-                                        <th>Estado</th>
-                                        <th>Acciones</th>
+                                <tr>
+                                    <th style="width:8px">Observ</th>
+                                    <th style="width:8px">NS</th>
+                                    <th>Modelo</th>
+                                    <th>Tipo </th>
+                                    <th>Localizacion</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
 
-                                    </tr>
+                                </tr>
 
-                                </thead>
+                            </thead>
 
-                            </table>
+                        </table>
 
                 </form>
 
