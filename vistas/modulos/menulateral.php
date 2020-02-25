@@ -14,7 +14,7 @@
 
             </li>
             <li>
-                <a href="Estructura">
+                <a href="estructura">
                     <i class="fa fa-briefcase"></i>
                     <span>Estructura Red</span>
                 </a>

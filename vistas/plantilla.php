@@ -59,6 +59,8 @@ session_start();
     <!-- jQuery 3 -->
     <script src=" vistas/bower_components/jquery/dist/jquery.min.js"> </script>
     <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src=" vistas/bower_components/jquery-ui/jquery-ui.js"> </script>
+    <link rel="stylesheet" href="vistas/plugins/lobilist/dist/lobilist.min.css">
 
     <!-- FastClick -->
     <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
@@ -121,10 +123,9 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "categorias" ||
                 $_GET["ruta"] == "delegados" ||
                 $_GET["ruta"] == "inventario" ||
-                $_GET["ruta"] == "Estructura" ||
+                $_GET["ruta"] == "estructura" ||
                 $_GET["ruta"] == "log" ||
-                $_GET["ruta"] == "Mail" ||
-                $_GET["ruta"] == "mail.php" ||
+                $_GET["ruta"] == "norecepcionados" ||
                 $_GET["ruta"] == "Salir"
             ) {
 
@@ -160,6 +161,11 @@ CUERPO DOCUMENTO
     <script src="vistas/js/inventario.js"></script>
     <script src="vistas/js/log.js"></script>
     <script src="vistas/js/jstree.js"></script>
+    <script src="vistas/js/graficos.js"></script>
+    <script src="vistas/js/dashboard.js"></script>
+
+    <!-- ChartJS -->
+    <script src="vistas/plugins/Chart.js/dist/Chart.js"></script>
 
 
 
