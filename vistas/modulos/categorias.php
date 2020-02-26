@@ -14,7 +14,7 @@ include "Modalescategoria.php"
 
         <ol class="breadcrumb">
 
-            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
 
             <li class="active">Administrar categorías</li>
 

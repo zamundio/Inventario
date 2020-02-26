@@ -15,7 +15,7 @@ include "Modalesusuario.php"
 
         <ol class="breadcrumb">
 
-            <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="inicio"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
 
             <li class="active">Administrar usuarios</li>
 

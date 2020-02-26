@@ -31,6 +31,56 @@ class ModeloMaestras{
         $stmt = null;
     }
 
+    static public function mdlEliminarMaestras($tabla,$item, $valor)
+    {
+
+
+
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE $item = :valor");
+
+        $stmt->bindParam(":valor", $valor, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return "error";
+        }
+
+
+
+        $stmt = null;
+    }
+
+    static public function mdlAñadirMaestras($tabla,$datos){
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(text,fecha) VALUES (:text,:fecha)");
+
+        $stmt->bindParam(":text", $datos["text"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return "error";
+        }
+
+
+
+        $stmt = null;
+
+
+
+    }
+
+
+
+
+
+
+
 
 
 }

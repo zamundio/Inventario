@@ -85,6 +85,8 @@ session_start();
     <!--load all styles -->
 
     <script src="vistas/plugins/jstree/dist/jstree.min.js"></script>
+    <!-- Confirm Modal Js -->
+    <script src="vistas/plugins/confirm-modal/js/jquery.confirmModal.min.js"></script>
 </head>
 
 <!--=====================================
