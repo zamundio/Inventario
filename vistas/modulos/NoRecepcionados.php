@@ -4,15 +4,16 @@
 
         <h1>
 
-            Administrar categorías
+            Equipos No recepcionados
 
         </h1>
 
         <ol class="breadcrumb">
 
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+            <li><a href="inicio"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
 
-            <li class="active">Administrar categorías</li>
+            <li class="active"> Equipos No recepcionados
+            </li>
 
         </ol>
 

@@ -348,7 +348,7 @@ $todo = ModeloMaestras::mdlMostrarMaestras($tabla, $item, $valor);
                                      <i class='fa fa-ellipsis-v'></i>
                                  </span>
 
-                                 <input type='checkbox' value=''>
+                                 <input type='checkbox' value='checked'  >
 
                                  <span class='text'>";
                                 $post_label_success = "</span> <small class='label label-success'><i class='fa fa-clock'></i>";

@@ -3,12 +3,10 @@
 session_start();
 
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -99,7 +97,7 @@ CUERPO DOCUMENTO
 
     if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
-        echo '<div class="wrapper">';
+        /*  echo '<div class="wrapper">';*/
 
         /*=============================================
     CABEZOTE
@@ -128,6 +126,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "estructura" ||
                 $_GET["ruta"] == "log" ||
                 $_GET["ruta"] == "norecepcionados" ||
+                $_GET["ruta"] == "cargacsv" ||
                 $_GET["ruta"] == "Salir"
             ) {
 
@@ -165,7 +164,7 @@ CUERPO DOCUMENTO
     <script src="vistas/js/jstree.js"></script>
     <script src="vistas/js/graficos.js"></script>
     <script src="vistas/js/dashboard.js"></script>
-
+    <script src="vistas/js/loadcsv.js"></script>
     <!-- ChartJS -->
     <script src="vistas/plugins/Chart.js/dist/Chart.js"></script>
 
@@ -174,5 +173,6 @@ CUERPO DOCUMENTO
     <script src="vistas/js/maps.js"></script>
 
 </body>
+
 
 </html>

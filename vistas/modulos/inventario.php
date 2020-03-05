@@ -1,8 +1,16 @@
  <?php
     include "Modalesinventario.php";
+    require_once "modelos/inventario.modelo.php";
+    require_once "vendor/autoload.php";
+
+    use PhpOffice\PhpSpreadsheet\Spreadsheet;
+    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+    use Symfony\Component\HttpFoundation\StreamedResponse;
+    use Symfony\Component\HttpFoundation\Response;
+
+
 
     $ComboJV = ControladorDelegados::ctrMostrarJV();
-
     ?>
 
 
@@ -11,7 +19,7 @@
 
  <div class="content-wrapper">
 
-     <section class="content-header">
+     <section class="content-header" id="contentheader">
 
          <h1>
 
@@ -51,6 +59,7 @@
                          </select>
                          <button class="btn btn-primary" data-container="body" name="submitGA" id="submitGA" type="submit">Buscar</button>
                          <button class="btn btn-primary" data-container="body" name="ResetFiltros" id="ResetFiltros" type="button">Resetear</button>
+                         <button class="btn btn-info" data-container="body" name=" Exportxls_inv" id="Exportxls_inv" type="button" style="position: absolute; right: 0;">Exportar Excel</button>
                      </div>
                  </div>
 

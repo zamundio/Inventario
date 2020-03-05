@@ -5,8 +5,7 @@
         <!-- Create the tabs -->
         <ul class="sidebar-menu">
 
-            <li class="active">
-
+            <li>
                 <a href="inicio">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
@@ -64,7 +63,14 @@
                 </a>
 
             </li>
+            <li>
 
+                <a href="cargacsv">
+                    <i class="fa fa-clipboard-list"></i>
+                    <span>Carga CSV</span>
+                </a>
+
+            </li>
 
 
         </ul>

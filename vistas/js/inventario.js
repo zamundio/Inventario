@@ -1,3 +1,8 @@
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+    });
+}, 6000);
 $('.selectpicker').selectpicker({
     style: 'btn-default'
 });
@@ -290,4 +295,26 @@ $(".CheckTelf").change(function() {
 
 
 
+});
+
+$("#Exportxls_inv").click(function() {
+
+    $.ajax({
+        // En data puedes utilizar un objeto JSON, un array o un query string
+        data: {
+            "Export_table": "ExportInv"
+        },
+        //Cambiar a type: POST si necesario
+        type: "POST",
+        // Formato de datos que se espera en la respuesta
+        dataType: "json",
+        // URL a la que se enviará la solicitud Ajax
+        url: "ajax/export.ajax.php",
+        success: function(data) {
+
+
+            $("#contentheader").after('<div class="alert alert-success" role="alert"> <button type = "button" class = "close" data-dismiss="alert" aria-label = "Close" > <span aria-hidden="true"<span></button ><strong> El documento ha sido exportado en  : ' + data + '</strong> <div>');
+
+        }
+    })
 });

@@ -1,12 +1,3 @@
-$(document).ready(function() {
-    $('.confirmModal').click(function(e) {
-        e.preventDefault();
-        $.confirmModal('Are you sure to delete this?', function(el) {
-            console.log("Ok was clicked!")
-                //do delete operation
-        });
-    });
-});
 $(function() {
 
     'use strict';
@@ -31,12 +22,15 @@ $(function() {
     });
     /* The todo list plugin */
     $('.todo-list').todoList({
+
         onCheck: function() {
             window.console.log($(this), 'The element has been checked');
         },
         onUnCheck: function() {
             window.console.log($(this), 'The element has been unchecked');
         }
+
+
     });
     $('.todo-list').slimScroll({
         height: '150px'
