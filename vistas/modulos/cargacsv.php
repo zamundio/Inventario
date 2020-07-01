@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <div class="content-wrapper">
 
     <section class="content-header">
@@ -34,34 +38,47 @@
                 </div>
             </div>
             <div class="box-body">
-                <h2>Import CSV file into Mysql using PHP</h2>
-
-                <div id="response" class="<?php if (!empty($type)) {
-                                                echo $type . " display-block";
-                                            } ?>"><?php if (!empty($message)) {
-                                                        echo $message;
-                                                    } ?></div>
-                <div class="outer-scontainer">
-                    <div class="row">
-
-                        <form class="form-horizontal" action="" method="post" name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
-                            <div class="input-row">
-                                <label class="col-md-4 control-label">Choose CSV
-                                    File</label> <input type="file" name="file" id="file" accept=".csv">
-                                <button type="submit" id="submit" name="import" class="btn-submit">Import</button>
-                                <br />
-
-                            </div>
-
-                        </form>
+                <div class="container">
+                    <br />
+                    <h3 align="center">Import CSV File into Jquery Datatables using PHP Ajax</h3>
+                    <br />
+                    <form id="upload_csv" method="post" enctype="multipart/form-data">
+                        <div class="col-md-3">
+                            <br />
+                            <label>Add More Data</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="file" name="csv_file" id="csv_file" accept=".csv" style="margin-top:15px;" />
+                        </div>
+                        <div class="col-md-5">
+                            <input type="submit" name="upload" id="upload" value="Upload" style="margin-top:10px;" class="btn btn-info" />
+                        </div>
+                        <div style="clear:both"></div>
+                    </form>
+                    <br />
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" id="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Student Name</th>
+                                    <th>Phone Number</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                        Footer
-                    </div>
-                    <!-- /.box-footer-->
                 </div>
-                <!-- /.box -->
+
+
+
+                </body>
+
+                <!-- /.box-body -->
+
+                <!-- /.box-footer-->
+            </div>
+            <!-- /.box -->
 
     </section>
     <!-- /.content -->
@@ -70,39 +87,4 @@
 <?php
 
 
-if (isset($_POST["import"])) {
-    $campos[]=null;
-    $stmt = Conexion::conectar()->prepare("SHOW COLUMNS FROM test");
-    $stmt->execute();
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-       if($row['Field']){
-        array_push($campos, $row['Field']);
-       }
-}
 
-ModeloMaestras::mdlImportCSV("test",$campos);
-
-
-  /*  $fileName = $_FILES["file"]["tmp_name"];
-
-    if ($_FILES["file"]["size"] > 0) {
-
-        $file = fopen($fileName, "r");
-
-        while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
-            $sqlInsert = "INSERT into users (userId,userName,password,firstName,lastName)
-                   values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "')";
-            $result = mysqli_query($conn, $sqlInsert);
-
-            if (!empty($result)) {
-                $type = "success";
-                $message = "CSV Data Imported into the Database";
-            } else {
-                $type = "error";
-                $message = "Problem in Importing CSV Data";
-            }
-        }
-    }
-}*/
-}
-?>

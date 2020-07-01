@@ -48,7 +48,7 @@ include "Modalmail.php";
 
                             <span class="input-group-addon" id="busqueda-addon"><span class="fa fa-search"></span></span>
                         </div>
-                        </br>
+
                         <div id="tree-container"></div>
                     </div>
                     <!-- /.box-body -->
@@ -62,7 +62,7 @@ include "Modalmail.php";
         <!--PANEL DERECHO -->
         <div class="col-lg-8">
 
-            <div class="box box-primary ">
+            <div class="box box-primary">
 
 
                 <form role="form" method="post" id="formdata">

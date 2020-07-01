@@ -74,19 +74,15 @@ class ModeloMaestras{
 
 
     }
-    static public function mdlImportCSV($tabla,$campos)
+    static public function mdlImportCSV($tabla,$campos,$valores)
     {
-     $sql_campos=null;
-        foreach ($campos as $valor) {
-                $sql_campos= $sql_campos.",". $valor;
 
-            }
-            print_r(substr($sql_campos,2));
+$sql= "INSERT INTO $tabla (".$campos. ") VALUES ('".$valores."')";
 
-      /*  $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(text,fecha) VALUES (:text,:fecha)");
 
-        $stmt->bindParam(":text", $datos["text"], PDO::PARAM_STR);
-        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+       $stmt = Conexion::conectar()->prepare($sql);
+
+
         if ($stmt->execute()) {
 
             return "ok";
@@ -97,7 +93,7 @@ class ModeloMaestras{
 
 
 
-        $stmt = null;*/
+        $stmt = null;
     }
 
 

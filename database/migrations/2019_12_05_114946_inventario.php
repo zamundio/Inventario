@@ -14,10 +14,10 @@ class log_movimientos extends Migration
     public function up()
     {
         Schema::create('log_movimientos', function (Blueprint $table) {
-            
+
             $table->timestamps();
 			$table->softDeletes();
-			$table->string('NS')->->unique();
+			$table->string('NS')->unique();
 			$table->integer('Id_LocOld')->nullable();
 			$table->integer('Id_LocNew')->nullable();
 			$table->integer('Id_EstadoOld')->nullable();

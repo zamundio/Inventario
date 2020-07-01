@@ -1,22 +1,34 @@
-	$(document).ready(
-	    function() {
-	        $("#frmCSVImport").on(
-	            "submit",
-	            function() {
+	$(document).ready(function() {
+	    $('#upload_csv').on('submit', function(event) {
+	        event.preventDefault();
+	        $.ajax({
 
-	                $("#response").attr("class", "");
-	                $("#response").html("");
-	                var fileType = ".csv";
-	                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" +
-	                    fileType + ")$");
-	                if (!regex.test($("#file").val().toLowerCase())) {
-	                    $("#response").addClass("error");
-	                    $("#response").addClass("display-block");
-	                    $("#response").html(
-	                        "Invalid File. Upload : <b>" + fileType +
-	                        "</b> Files.");
-	                    return false;
-	                }
-	                return true;
-	            });
+
+	            //Cambiar a type: POST si necesario
+	            type: "POST",
+	            // Formato de datos que se espera en la respuesta
+	            dataType: "json",
+	            // URL a la que se enviará la solicitud Ajax
+	            url: "ajax/importcsv.ajax.php",
+	            contentType: false,
+	            cache: false,
+	            processData: false,
+	            success: function(jsonData) {
+	                $('#csv_file').val('');
+	                $('#data-table').DataTable({
+	                    data: jsonData,
+	                    columns: [{
+	                            data: "student_id"
+	                        },
+	                        {
+	                            data: "student_name"
+	                        },
+	                        {
+	                            data: "student_phone"
+	                        }
+	                    ]
+	                });
+	            }
+	        });
 	    });
+	});
